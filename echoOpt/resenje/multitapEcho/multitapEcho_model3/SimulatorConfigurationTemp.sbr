@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CL_PROJECT>
+    <argv>D:\Fakultet\4_Godina\AADSP2\IspitniZadatak\Tests\Streams\WhiteNoise.wav D:\Fakultet\4_Godina\AADSP2\IspitniZadatak\Tests\Direct\Zmodel3.wav on 0 3_2_0</argv>
+    <FILE_IO_CFG block_type="Input" channels_per_line="2" delay="0" file_mode="PCM" index="0" justification="Left" sample_format="LittleEndian" sample_rate="48000" sample_size="32"/>
+    <FILE_IO_CFG block_type="Output" channels_per_line="2" delay="0" file_mode="PCM" index="0" justification="Left" sample_format="LittleEndian" sample_rate="48000" sample_size="32"/>
+    <MEMORY_CFG>
+        <ULD_FILE disk_path="D:/nastava/aadsp2/2017-2018/Vezbe/echoOpt/resenje/multitapEcho/multitapEcho_model3/output/standalone/multitapEcho_model3.uld"/>
+    </MEMORY_CFG>
+    <PROFILE_CFG enable="on"/>
+    <SCP_CFG load_delay="0"/>
+</CL_PROJECT>

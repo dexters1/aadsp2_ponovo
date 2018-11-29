@@ -1,0 +1,20 @@
+﻿Build started 3/2/2017 1:54:39 PM.
+     1>Project "d:\nastava\aadsp2\2016-2017\Vezbe\Vezba3\resenje\multitapEcho\multitapEcho_model0\multitapEcho_model0.vcxproj" on node 4 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\multitapEcho_model0.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+       Manifest:
+         All outputs are up-to-date.
+       FinalizeBuildStatus:
+         Deleting file "Debug\multitapEcho_model0.unsuccessfulbuild".
+         Touching "Debug\multitapEcho_model0.lastbuildstate".
+     1>Done Building Project "d:\nastava\aadsp2\2016-2017\Vezbe\Vezba3\resenje\multitapEcho\multitapEcho_model0\multitapEcho_model0.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.06

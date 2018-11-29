@@ -1,0 +1,94 @@
+1     	 0000				  .public _multitap_echo
+2     	 0000				  .extern _echoState
+3     						 .code_ovly
+3      >> start of macro: .code_ovly
+1+    									seg_single , "CODE_OVLY", CODE
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_CODE_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "CODE_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_CODE_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .code_ovly
+4     	 0000				_multitap_echo:			
+5     	 0000	 B2540017		xmem[i7] = i2; i7 += 1	# Stavljamo na stek registre koje ne smemo da prljamo		
+6     	 0001	 B3540017		xmem[i7] = i3; i7 += 1
+7     							
+8     	 0002	 B1090033		i3 = i1			
+9     	 0003	 B8040000		i4 = xmem[_echoState + 2]	# writePtr
+10    	 0004	 80040000		x0 = xmem[_echoState + 11]  # inputGain 
+11    	 0005	 B9040000		i5 = xmem[_echoState + 12]	# tapGain
+12    	 0006	 A2050000		i2 = (0) + (_echoState + 3)	# readPtrPtr
+13    							
+14    	 0007	 BC4AB001		nm4 = (0xb001)
+15    	 0008	 B54AB001		nm1 = (0xb001)		
+16    							
+17    	 0009	 81000015		do (0x10), label_end_93			# Prva for petlja (16) 
+18    	 000A				label_begin_93:			 
+19    	 000A	 81940010		x1 = ymem[i0]; i0 += 1		  
+20    							
+21    	 000B	 B1140002		i1 = xmem[i2]   # readPtr = *readPtrPtr
+22    	 000C	 515C2021		xmem[i4] = x1;i4 += n; a1 = x1 * x0
+23    	 000D	 39A87FFF		x1 = xmem[i1]; i1 += n; y0 = ymem[i5]; i5 += 1	 # x1 = *pGain++  y0 = *readPtr		 		
+24    								
+25    	 000E	 80400012		do (4), label_end_92			# LN: 133 | 
+26    	 000F				label_begin_92:			/* LN: 133 | CYCLE: 0 | RULES: () */ 
+27    	 000F	 B1540012		xmem[i2] = i1; i2 += 1
+28    	 0010	 B1140002		i1 = xmem[i2]   # readPtr = *readPtrPtr
+29    	 0011	 00007FFF		nop
+30    	 0012				label_end_92:			
+31    	 0012	 39A82489		a1 += x1 * y0; x1 = xmem[i1]; i1 += n; y0 = ymem[i5]; i5 += 1	 # x1 = *pGain++  y0 = *readPtr		 	
+32    							
+33    										# *readPtrPtr++ = readPtr 
+34    	 0013				for_end_3:			/* LN: 133 | CYCLE: 0 | RULES: () */ 
+35    	 0013	 95550005		i5 = i5 - (0x5)			# LN: 141 | 
+36    	 0014	 92250004		i2 = i2 - (0x4)			# LN: 142 | 
+37    	 0015				label_end_93:			# LN: 125 | CYCLE: 2 | RULES: ()
+38    	 0015	 89D40013		ymem[i3] = a1; i3 += 1			# LN: 144, 144 | 
+39    	 0016				for_end_2:			/* LN: 125 | CYCLE: 0 | RULES: () */ 
+40    	 0016	 B8440000		xmem[_echoState + 2] = i4			# LN: 147 | 
+41    						
+42    	 0017	 B54A0000		nm1 = (0x0)		
+43    	 0018	 BC4A0000		nm4 = (0x0)			
+44    							
+45    	 0019	 02177FFF		i7 -= 1			# LN: 148 | 
+46    	 001A	 B3140027		i3 = xmem[i7]; i7 -= 1			# LN: 148, 148 | 
+47    	 001B	 B2140007		i2 = xmem[i7]			# LN: 148 | 
+48    	 001C	 81880000		ret			# LN: 148 | 
+49    						(null)
+				 SYMBOL TABLE 
+
+    Name                                                                                    Type                  Value 
+
+_COMMON_INC_PATH_                                                               					 Define                 "C:/CirrusDSP/crystal32/common/inc/"
+_DSP_                                                                           					 Define                 "a"
+_LOCAL_INC_PATH_                                                                					 Define                 "inc/"
+_LOCAL_SRC_PATH_                                                                					 Define                 "src/"
+_MUI_VERSION_                                                                   					 Define                 "020000"
+_OVLY_                                                                          					 Define                 "standalone"
+_OVLY_REVISION_                                                                 					 Define                 "020000"
+_ROUTER_INC_PATH_                                                               					 Define                 "rom_inc/"
+_SLOT_                                                                          					 Define                 "0"
+_TARGET_FAMILY_                                                                 					 Define                 "crystal32"
+_TOOLS_VERSION_                                                                 					 Define                 "0x0701"
+_VERSION_                                                                       					 Define                 "00"
+__CASM_VER__                                                                    			  Unused Variable		        0 (701H)
+_echoState                                                                      					 External   
+_multitap_echo                                                                  			  Public Relocatable       multitapEcho_GEN_0000:0000H
+for_end_2                                                                       			  Unused Relocatable        multitapEcho_GEN_0000:0016H
+for_end_3                                                                       			  Unused Relocatable        multitapEcho_GEN_0000:0013H
+label_begin_92                                                                  			  Unused Relocatable        multitapEcho_GEN_0000:000FH
+label_begin_93                                                                  			  Unused Relocatable        multitapEcho_GEN_0000:000AH
+label_end_92                                                                    			         Relocatable         multitapEcho_GEN_0000:0012H
+label_end_93                                                                    			         Relocatable         multitapEcho_GEN_0000:0015H
+
+	       SEGMENTS:
+
+Size			  Name										 Class
+0000H	 __INIT                                  			 CODE                                    
+001DH	 multitapEcho_GEN_0000                   			 CODE_OVLY                               

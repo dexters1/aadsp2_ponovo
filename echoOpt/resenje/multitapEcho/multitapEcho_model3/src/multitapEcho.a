@@ -1,0 +1,53 @@
+  .public _multitap_echo
+  .extern _echoState
+ .code_ovly
+_multitap_echo:			
+	xmem[i7] = i2; i7 += 1	# Stavljamo na stek registre koje ne smemo da prljamo		
+	xmem[i7] = i3; i7 += 1
+	xmem[i7] = y3; i7+=1
+	
+	i3 = i1
+	i4 = i0
+				
+	i0 = xmem[_echoState + 2]	# writePtr
+	x0 = xmem[_echoState + 11]  # inputGain 
+	i5 = xmem[_echoState + 12]	# tapGain
+	i2 = (0) + (_echoState + 3)	# readPtrPtr
+	
+	nm0 = (0xb001)
+	nm1 = (0xb001)		
+	
+	y0 = ymem[i4]; i4 += 1
+	do (0x10), label_end_93			# Prva for petlja (16) 
+label_begin_93:			 
+	i1 = xmem[i2]   # readPtr = *readPtrPtr
+	
+	y0 = ymem[i4]; i4 += 1; xmem[i0] = x1;i0 += n; a1 = x1 * x0
+	
+	x1 = xmem[i1]; i1 += n; y0 = ymem[i5]; i5 += 1	 # x1 = *pGain++  y0 = *readPtr		 		
+		
+	do (4), label_end_92			# LN: 133 | 
+label_begin_92:			/* LN: 133 | CYCLE: 0 | RULES: () */ 
+	xmem[i2] = i1; i2 += 1
+	i1 = xmem[i2]   # readPtr = *readPtrPtr
+	nop
+label_end_92:			
+	a1 += x1 * y0; x1 = xmem[i1]; i1 += n; y0 = ymem[i5]; i5 += 1	 # x1 = *pGain++  y0 = *readPtr		 	
+	
+				# *readPtrPtr++ = readPtr 
+for_end_3:			/* LN: 133 | CYCLE: 0 | RULES: () */ 
+	i5 = i5 - (0x5)			# LN: 141 | 
+	i2 = i2 - (0x4)			# LN: 142 | 
+label_end_93:			# LN: 125 | CYCLE: 2 | RULES: ()
+	ymem[i3] = a1; i3 += 1			# LN: 144, 144 | 
+for_end_2:			/* LN: 125 | CYCLE: 0 | RULES: () */ 
+	xmem[_echoState + 2] = i4			# LN: 147 | 
+
+	nm1 = (0x0)		
+	nm0 = (0x0)			
+	
+	i7 -= 1			# LN: 148 |
+	y3 = xmem[i7]; i7-=1 
+	i3 = xmem[i7]; i7 -= 1			# LN: 148, 148 | 
+	i2 = xmem[i7]			# LN: 148 | 
+	ret			# LN: 148 | 
