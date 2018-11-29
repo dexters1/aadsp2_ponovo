@@ -156,7 +156,7 @@ void processing_S(double *pInbuf, double *pOutbuf)
 
 }
 
-void processing_main(double *pInbuf, double *pOutbuf) // da bude matrica
+void processing_main(double *pInbuf, double *pOutbuf) // da bude matrica !!! void ins (int (*matrix)[SIZE], int row, int column);
 {
 	do_stuff();
 	if (mode)
