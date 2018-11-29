@@ -1,20 +1,21 @@
-﻿Build started 3/2/2017 1:54:39 PM.
-     1>Project "d:\nastava\aadsp2\2016-2017\Vezbe\Vezba3\resenje\multitapEcho\multitapEcho_model0\multitapEcho_model0.vcxproj" on node 4 (build target(s)).
+﻿Build started 29.11.2018 17:48:39.
+     1>Project "D:\studenti\RA152-2015\echoOpt\resenje\multitapEcho\multitapEcho_model0\multitapEcho_model0.vcxproj" on node 2 (rebuild target(s)).
+       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
      1>InitializeBuildStatus:
-         Creating "Debug\multitapEcho_model0.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\multitapEcho_model0.unsuccessfulbuild".
        ClCompile:
-         All outputs are up-to-date.
-       ManifestResourceCompile:
-         All outputs are up-to-date.
-       Link:
-         All outputs are up-to-date.
-       Manifest:
-         All outputs are up-to-date.
-       FinalizeBuildStatus:
-         Deleting file "Debug\multitapEcho_model0.unsuccessfulbuild".
-         Touching "Debug\multitapEcho_model0.lastbuildstate".
-     1>Done Building Project "d:\nastava\aadsp2\2016-2017\Vezbe\Vezba3\resenje\multitapEcho\multitapEcho_model0\multitapEcho_model0.vcxproj" (build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp WAVheader.cpp
+         WAVheader.cpp
+     1>d:\studenti\ra152-2015\echoopt\resenje\multitapecho\multitapecho_model0\wavheader.cpp(84): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+         main.cpp
+     1>d:\studenti\ra152-2015\echoopt\resenje\multitapecho\multitapecho_model0\main.cpp(88): warning C4390: ';' : empty controlled statement found; is this the intent?
+     1>d:\studenti\ra152-2015\echoopt\resenje\multitapecho\multitapecho_model0\main.cpp(91): error C2181: illegal else without matching if
+     1>d:\studenti\ra152-2015\echoopt\resenje\multitapecho\multitapecho_model0\main.cpp(94): error C2059: syntax error : '}'
+     1>d:\studenti\ra152-2015\echoopt\resenje\multitapecho\multitapecho_model0\main.cpp(243): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         Generating Code...
+     1>Done Building Project "D:\studenti\RA152-2015\echoOpt\resenje\multitapEcho\multitapEcho_model0\multitapEcho_model0.vcxproj" (rebuild target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.06
+Time Elapsed 00:00:00.71

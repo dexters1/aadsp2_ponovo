@@ -42,7 +42,7 @@ typedef struct
 	double input_gain;
 	double tap_gain[N_TAP];
 	int n_tap;
-} EchoState;
+} ProcessingState;
 /////////////////////////////////////////////////////////////////////////////////
 
 
@@ -67,9 +67,9 @@ typedef struct
 // E-mail:	<email>
 //
 /////////////////////////////////////////////////////////////////////////////////
-void multitap_echo_init(EchoState* echoState, double* buffer, const int echoBufLen, const int delay[], const double input_gain, const  double tap_gain[], const int n_tap)
+void multitap_echo_init(bool mode, double input_gain)
 {
-	int i;
+	/*int i;
 	for (i = 0; i < echoBufLen; i++)
 	{
 		buffer[i] = 0.0;
@@ -83,8 +83,19 @@ void multitap_echo_init(EchoState* echoState, double* buffer, const int echoBufL
 	{
 		echoState->delay[i] = delay[i];
 		echoState->readIndex[i] = echoBufLen - 1 - delay[i];
-		echoState->tap_gain[i] = tap_gain[i];
+		echoState->tap_gain[i] = tap_gain[i];*/
+
+	if(mode - 1 == 0)
+	{
+		input_gain = 0.707346;
+		return;
 	}
+	else
+	{
+		return;
+	}
+
+	return;
 	
 }
 
@@ -108,7 +119,7 @@ void multitap_echo_init(EchoState* echoState, double* buffer, const int echoBufL
 /////////////////////////////////////////////////////////////////////////////////
 void multitap_echo(double *pInbuf, double *pOutbuf, int inputLen, EchoState* echoState)
 {
-	int i, j;
+	/*int i, j;
 
 	for(i = 0; i < inputLen; i++)
 	{
@@ -122,6 +133,7 @@ void multitap_echo(double *pInbuf, double *pOutbuf, int inputLen, EchoState* ech
 			echoState->readIndex[j] = (echoState->readIndex[j] + 1) % echoState->bufferLength;
 		}
 	}
+	*/
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -147,10 +159,14 @@ int main(int argc, char* argv[])
 	char WavOutputName[256];
 	WAV_HEADER inputWAVhdr,outputWAVhdr;	
 
+	bool mode;
+	mode = 0; //hardcode
+	double input_gain = 0.707346;//hardcode
+
 
 	// Multitap delay state and initialization constants
 	//-------------------------------------------------
-	EchoState echoState;
+	ProcessingState processingState;
 	double echo_buffer[ECHO_MAX_LENGTH];
 	const int initial_delay[N_TAP] = {1024, 1536, 2560, 3072};
 	const double initial_gain[N_TAP] ={0.25, 0.125, 0.0625, 0.0625};
@@ -194,7 +210,7 @@ int main(int argc, char* argv[])
 
 	
 	// Initialize echo 
-	multitap_echo_init(&echoState, echo_buffer, ECHO_MAX_LENGTH, initial_delay, initial_input_gain, initial_gain, N_TAP);
+	multitap_echo_init(mode, input_gain);
     
 
 	// Processing loop
