@@ -1,16 +1,19 @@
-﻿Build started 29.11.2018 18:27:30.
-     1>Project "D:\studenti\RA152-2015\Projekat\ProcessWavFile\ProcessWavFile\ProcessWavFile.vcxproj" on node 2 (build target(s)).
+﻿Build started 30.11.2018 18:06:33.
+     1>Project "D:\Ra152-2015\aadsp2\Projekat\ProcessWavFile\ProcessWavFile\ProcessWavFile.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\ProcessWavFile.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt tremolo1.cpp
-         tremolo1.cpp
-     1>tremolo1.cpp(71): warning C4305: '=' : truncation from 'double' to 'float'
-     1>tremolo1.cpp(87): warning C4244: 'initializing' : conversion from 'double' to 'const float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>main.cpp(162): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>main.cpp(164): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>main.cpp(263): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\studenti\RA152-2015\Projekat\ProcessWavFile\Debug\ProcessWavFile.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\ProcessWavFile.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\studenti\RA152-2015\Projekat\ProcessWavFile\Debug\ProcessWavFile.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\studenti\RA152-2015\Projekat\ProcessWavFile\Debug\ProcessWavFile.lib" /MACHINE:X86 Debug\ProcessWavFile.exe.embed.manifest.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Ra152-2015\aadsp2\Projekat\ProcessWavFile\Debug\ProcessWavFile.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\ProcessWavFile.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Ra152-2015\aadsp2\Projekat\ProcessWavFile\Debug\ProcessWavFile.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Ra152-2015\aadsp2\Projekat\ProcessWavFile\Debug\ProcessWavFile.lib" /MACHINE:X86 Debug\ProcessWavFile.exe.embed.manifest.res
          Debug\main.obj
          Debug\tremolo1.obj
          Debug\WAVheader.obj
@@ -19,12 +22,12 @@
          All outputs are up-to-date.
        LinkEmbedManifest:
          All outputs are up-to-date.
-         ProcessWavFile.vcxproj -> D:\studenti\RA152-2015\Projekat\ProcessWavFile\Debug\ProcessWavFile.exe
+         ProcessWavFile.vcxproj -> D:\Ra152-2015\aadsp2\Projekat\ProcessWavFile\Debug\ProcessWavFile.exe
        FinalizeBuildStatus:
          Deleting file "Debug\ProcessWavFile.unsuccessfulbuild".
          Touching "Debug\ProcessWavFile.lastbuildstate".
-     1>Done Building Project "D:\studenti\RA152-2015\Projekat\ProcessWavFile\ProcessWavFile\ProcessWavFile.vcxproj" (build target(s)).
+     1>Done Building Project "D:\Ra152-2015\aadsp2\Projekat\ProcessWavFile\ProcessWavFile\ProcessWavFile.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.43
+Time Elapsed 00:00:00.73

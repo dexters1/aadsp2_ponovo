@@ -15,6 +15,7 @@
 #include "WAVheader.h"
 #include "common.h"
 #include "tremolo1.h"
+#include <math.h>
 
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -29,21 +30,12 @@ double sampleBuffer[MAX_NUM_CHANNEL][BLOCK_SIZE];
 /////////////////////////////////////////////////////////////////////////////////
 typedef struct  
 {
-	/*double* pEchoBuff;
-	int bufferLength;
-	int writeIndex;
-	int readIndex[N_TAP];
-	int delay[N_TAP];
-	double input_gain;
-	double tap_gain[N_TAP];
-	int n_tap;*/
-	double input_gain;
+	int input_gain;
 	bool mode;
+	bool enable;
 } ProcessingState;
 
-double input_gain;
-int mode;
-bool enable = 1;
+bool enable;
 ProcessingState processingState;
 tremolo_struct_t tremoloS;
 /////////////////////////////////////////////////////////////////////////////////
@@ -70,38 +62,25 @@ tremolo_struct_t tremoloS;
 // E-mail:	<email>
 //
 /////////////////////////////////////////////////////////////////////////////////
+void gainConverter()
+{
+	if(processingState.input_gain > 0)
+	{
+		processingState.input_gain = 0;
+	}
+	processingState.input_gain = pow(10.0, (processingState.input_gain/20.0));
+	
+}
+
+
 void processing_init()
 {
 	init(&tremoloS); //init za tremolo modul
-
-	/*int i;
-	for (i = 0; i < echoBufLen; i++)
-	{
-		buffer[i] = 0.0;
-	}
-	echoState->pEchoBuff = buffer;
-	echoState->bufferLength = echoBufLen;
-	echoState->writeIndex = echoBufLen-1;
-	echoState->input_gain = input_gain;
-	echoState->n_tap = n_tap;
-	for(i = 0; i< n_tap; i++)
-	{
-		echoState->delay[i] = delay[i];
-		echoState->readIndex[i] = echoBufLen - 1 - delay[i];
-		echoState->tap_gain[i] = tap_gain[i];*/
-
-	if(processingState.mode - 1 == 0)
-	{
-		processingState.input_gain = 0.707346;
-	}
-	else
-	{
-		
-	}
+	gainConverter(); //iz db u linearno
 
 	return;
-	
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////
 // @Author	<student name>
@@ -121,53 +100,35 @@ void processing_init()
 // E-mail:	<email>
 //
 /////////////////////////////////////////////////////////////////////////////////
-void processing(double *pInbuf, double *pOutbuf)
+void processing_S(double* pInbuf, double* pOutbuf)  //ulazni buffer mnozi sa gainom datim i ide na izlaz
 {
+	double in;
 
-	if(processingState.mode - 1 == 0)
+	for( int i = 0; i < BLOCK_SIZE; i++)
 	{
-		
+		in = pInbuf[i];
+		pOutbuf[i] =  in * processingState.input_gain;
 	}
-	else
-	{
-
-	}
-
-	/*int i, j;
-
-	for(i = 0; i < inputLen; i++)
-	{
-		echoState->pEchoBuff[echoState->writeIndex] = pInbuf[i];
-		echoState->writeIndex = (echoState->writeIndex + 1) % echoState->bufferLength;	
-
-		pOutbuf[i] =  pInbuf[i] * echoState->input_gain;
-		for(j = 0; j < echoState->n_tap; j++)
-		{
-			pOutbuf[i] +=  echoState->tap_gain[j] * echoState->pEchoBuff[echoState->readIndex[j]];
-			echoState->readIndex[j] = (echoState->readIndex[j] + 1) % echoState->bufferLength;
-		}
-	}
-	*/
 }
 
-void processing_S(double *pInbuf, double *pOutbuf)
-{
 
+void processing_main(double pInbuf[MAX_NUM_CHANNEL][BLOCK_SIZE], double pOutbuf[MAX_NUM_CHANNEL][BLOCK_SIZE]) // da bude matrica !!! void ins (int (*matrix)[SIZE], int row, int column);
+{
+	//sve mnozim sa gainom
+	processing_S(pInbuf[0], pInbuf[0]);//L
+	processing_S(pInbuf[2], pInbuf[2]);//R
+	processing_S(pInbuf[3], pInbuf[3]);//Ls
+	processing_S(pInbuf[4], pInbuf[4]);//Rs
+	
+	if (processingState.mode - 1 == 0) //ako mode 1 prolaze oni koji treba jos i kroz tremolo
+	{
+		processBlock(pInbuf[0], pInbuf[0], &tremoloS, BLOCK_SIZE); //Je l' treba Tremolo1 funkcije da editujem? Da izbacim promenljive iz poziva funkcija?
+		processBlock(pInbuf[2], pInbuf[2], &tremoloS, BLOCK_SIZE);
+	}
 
 }
 
-void processing_main(double *pInbuf, double *pOutbuf) // da bude matrica !!! void ins (int (*matrix)[SIZE], int row, int column);
-{
-	do_stuff();
-	if (mode)
-	{
 
-	}
-	else
-	{
-
-	}
-}
 /////////////////////////////////////////////////////////////////////////////////
 // @Author	<student name>
 // @Date		<date>  
@@ -226,16 +187,58 @@ int main(int argc, char* argv[])
 	//-------------------------------------------------
 	WriteWavHeader(wav_out,outputWAVhdr);
 
-	processingState.mode = atoi(argv[3]);
-	processingState.input_gain = atof(argv[4]); // provera da li je izmedju 0 i -beskonacno, ako nije warning baci ili izadji?
+	if(argc - 6 > 0)
+	{
+		printf("Too many arguments in fucntion call");
+		return 0;
+	}
+	else if(argc - 3 < 0)
+	{
+		printf("Too few arguments in fucntion call");
+		return 0;
+	}
+
+	if(argc - 6 == 0)
+	{
+		processingState.enable = atoi(argv[3])?1:0;
+		processingState.input_gain = atoi(argv[4]);
+		processingState.mode = atoi(argv[5])?1:0;
+	}
+	else
+	{
+		if(argc - 5 == 0)
+		{
+			processingState.mode = 0;
+			processingState.enable = atoi(argv[3])?1:0;
+			processingState.input_gain = atof(argv[4]);
+		}
+		else
+		{
+			if(argc - 4 == 0)
+			{
+				processingState.mode = 0;
+				processingState.enable = atoi(argv[3])?1:0;
+				processingState.input_gain = -3;
+			}
+			else
+			{
+				processingState.mode = 0;
+				processingState.input_gain = -3;
+				processingState.enable = 1;
+			}
+		}
+	}
+	
+
+	
+	// Initialize process
+	processing_init();
 
 	if(enable != true )
 	{
 		printf("Processing isn't enabled, exiting program");
 		return 0;
 	}
-	// Initialize echo 
-	processing_init();
     
 
 	// Processing loop
@@ -260,13 +263,8 @@ int main(int argc, char* argv[])
 				}
 			}
 			
-			
-			// Call processing on first channel
-			/*processing(sampleBuffer[0], sampleBuffer[0]); //L
-			processing(sampleBuffer[2], sampleBuffer[2]); //R
-			processing_S(sampleBuffer[3], sampleBuffer[3]); //Ls
-			processing_S(sampleBuffer[4], sampleBuffer[4]); //Rs*/
-			processing_main(sampleBuffer[0][0], sampleBuffer[0][0]); //prosledjujem samo jedan element matrice, ne treba pokazivac, vec moram citavu matricu
+		
+			processing_main(sampleBuffer, sampleBuffer); //prosledjujem samo jedan element matrice, ne treba pokazivac, vec moram citavu matricu
 			
 			
 			for(int j=0; j<BLOCK_SIZE; j++)
