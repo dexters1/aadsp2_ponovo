@@ -30,14 +30,13 @@ double sampleBuffer[MAX_NUM_CHANNEL][BLOCK_SIZE];
 /////////////////////////////////////////////////////////////////////////////////
 typedef struct  
 {
-	int input_gain;
+	double input_gain;
 	bool mode;
 	bool enable;
 } ProcessingState;
 
-bool enable;
 ProcessingState processingState;
-tremolo_struct_t tremoloS;
+
 /////////////////////////////////////////////////////////////////////////////////
 
 
@@ -75,7 +74,7 @@ void gainConverter()
 
 void processing_init()
 {
-	init(&tremoloS); //init za tremolo modul
+	init();
 	gainConverter(); //iz db u linearno
 
 	return;
@@ -102,28 +101,31 @@ void processing_init()
 /////////////////////////////////////////////////////////////////////////////////
 void processing_S(double* pInbuf, double* pOutbuf)  //ulazni buffer mnozi sa gainom datim i ide na izlaz
 {
-	double in;
+	double *in = pInbuf;
+	double *out = pOutbuf;
 
 	for( int i = 0; i < BLOCK_SIZE; i++)
 	{
-		in = pInbuf[i];
-		pOutbuf[i] =  in * processingState.input_gain;
+		
+		(*out) =  (*in) * processingState.input_gain;
+		in++;
+		out++;
 	}
 }
 
 
-void processing_main(double pInbuf[MAX_NUM_CHANNEL][BLOCK_SIZE], double pOutbuf[MAX_NUM_CHANNEL][BLOCK_SIZE]) // da bude matrica !!! void ins (int (*matrix)[SIZE], int row, int column);
+void processing(double pInbuf[MAX_NUM_CHANNEL][BLOCK_SIZE], double pOutbuf[MAX_NUM_CHANNEL][BLOCK_SIZE]) // da bude matrica !!! void ins (int (*matrix)[SIZE], int row, int column);
 {
 	//sve mnozim sa gainom
-	processing_S(pInbuf[0], pInbuf[0]);//L
-	processing_S(pInbuf[2], pInbuf[2]);//R
-	processing_S(pInbuf[3], pInbuf[3]);//Ls
-	processing_S(pInbuf[4], pInbuf[4]);//Rs
+	processing_S(pInbuf[0], pOutbuf[0]);//L Je l' saljem pInbuf[1] ili pInbuf+BLOCK_SIZE?
+	processing_S(pInbuf[2], pOutbuf[2]);//R
+	processing_S(pInbuf[3], pOutbuf[3]);//Ls
+	processing_S(pInbuf[4], pOutbuf[4]);//Rs
 	
 	if (processingState.mode - 1 == 0) //ako mode 1 prolaze oni koji treba jos i kroz tremolo
 	{
-		processBlock(pInbuf[0], pInbuf[0], &tremoloS, BLOCK_SIZE); //Je l' treba Tremolo1 funkcije da editujem? Da izbacim promenljive iz poziva funkcija?
-		processBlock(pInbuf[2], pInbuf[2], &tremoloS, BLOCK_SIZE);
+		processBlock(pInbuf[0], pOutbuf[0]); //Je l' treba Tremolo1 funkcije da editujem? Da izbacim promenljive iz poziva funkcija?
+		processBlock(pInbuf[2], pOutbuf[2]);
 	}
 
 }
@@ -173,6 +175,7 @@ int main(int argc, char* argv[])
 	//-------------------------------------------------	
 	outputWAVhdr = inputWAVhdr;
 	outputWAVhdr.fmt.NumChannels = inputWAVhdr.fmt.NumChannels; // change number of channels
+	//outputWAVhdr.fmt.NumChannels = 4;
 
 	int oneChannelSubChunk2Size = inputWAVhdr.data.SubChunk2Size/inputWAVhdr.fmt.NumChannels;
 	int oneChannelByteRate = inputWAVhdr.fmt.ByteRate/inputWAVhdr.fmt.NumChannels;
@@ -234,7 +237,7 @@ int main(int argc, char* argv[])
 	// Initialize process
 	processing_init();
 
-	if(enable != true )
+	if(!processingState.enable)
 	{
 		printf("Processing isn't enabled, exiting program");
 		return 0;
@@ -264,7 +267,7 @@ int main(int argc, char* argv[])
 			}
 			
 		
-			processing_main(sampleBuffer, sampleBuffer); //prosledjujem samo jedan element matrice, ne treba pokazivac, vec moram citavu matricu
+			processing(sampleBuffer, sampleBuffer); //prosledjujem samo jedan element matrice, ne treba pokazivac, vec moram citavu matricu
 			
 			
 			for(int j=0; j<BLOCK_SIZE; j++)
