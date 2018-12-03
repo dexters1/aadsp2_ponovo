@@ -13,7 +13,7 @@
 /////////////////////////////////////////////////////////////////////////////////
 // IO buffers
 /////////////////////////////////////////////////////////////////////////////////
-double sampleBuffer[MAX_NUM_CHANNEL][BLOCK_SIZE];
+DSPfract sampleBuffer[MAX_NUM_CHANNEL][BLOCK_SIZE];
 /////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -21,39 +21,85 @@ double sampleBuffer[MAX_NUM_CHANNEL][BLOCK_SIZE];
 /////////////////////////////////////////////////////////////////////////////////
 typedef struct  
 {
-	double input_gain;
+	DSPfract input_gain; //bice frakt
 	bool mode;
 	bool enable;
 } ProcessingState;
 
+int input_gain;
 ProcessingState processingState;
 
 /////////////////////////////////////////////////////////////////////////////////
 
 void gainConverter() //konvertuje gain iz db u linearno
 {
-	if(processingState.input_gain > 0)
+	if(input_gain > 0)
 	{
-		processingState.input_gain = 0;
+		input_gain = 0;
 	}
-	processingState.input_gain = pow(10.0, (processingState.input_gain/20.0));
+	double input_gain_lin = pow(10.0, (input_gain/20.0));
+	processingState.input_gain = FRACT_NUM(input_gain_lin);
 	
 }
 
+enum ret_codes { SUCCESS, FAIL };
 
-void processing_init()
+int processing_init(char* enable, char* gain, char* mode, int argc)
 {
 	init(); //init za tremolo
-	gainConverter(); //iz db u linearno
+	
+	if(argc - 6 > 0) //Sredjivanje argumenata komandne linije kao parametri funkcije
+	{
+		printf("Too many arguments in fucntion call");
+		return FAIL;
+	}
+	else if(argc - 3 < 0)
+	{
+		printf("Too few arguments in fucntion call");
+		return FAIL;
+	}
 
-	return;
+	if(argc - 6 == 0)
+	{
+		processingState.enable = atoi(enable)?1:0;
+		input_gain = atoi(gain);
+		processingState.mode = atoi(mode)?1:0;
+	}
+	else
+	{
+		if(argc - 5 == 0)
+		{
+			processingState.mode = 0;
+			processingState.enable = atoi(enable)?1:0;
+			input_gain = atoi(gain);
+		}
+		else
+		{
+			if(argc - 4 == 0)
+			{
+				processingState.mode = 0;
+				processingState.enable = atoi(enable)?1:0;
+				input_gain = -3;
+			}
+			else
+			{
+				processingState.mode = 0;
+				input_gain = -3;
+				processingState.enable = 1;
+			}
+		}
+	}
+
+	gainConverter();  //iz db u linearno
+
+	return SUCCESS;
 }
 
 
-void processing_S(double* pInbuf, double* pOutbuf)  //Funkcija za gain
+void processing_S(DSPfract* pInbuf, DSPfract* pOutbuf)  //Funkcija za gain
 {
-	double *in = pInbuf;
-	double *out = pOutbuf;
+	DSPfract *in = pInbuf;
+	DSPfract *out = pOutbuf;
 
 	for( int i = 0; i < BLOCK_SIZE; i++)
 	{
@@ -64,10 +110,10 @@ void processing_S(double* pInbuf, double* pOutbuf)  //Funkcija za gain
 	}
 }
 
-void processing_C(double* pInbuf, double* pOutbuf)  //Kopira Ulazni buffer u Izlazni buffer
+void processing_C(DSPfract* pInbuf, DSPfract* pOutbuf)  //Kopira Ulazni buffer u Izlazni buffer
 {
-	double *in = pInbuf;
-	double *out = pOutbuf;
+	DSPfract *in = pInbuf;
+	DSPfract *out = pOutbuf;
 
 	for( int i = 0; i < BLOCK_SIZE; i++)
 	{
@@ -79,7 +125,7 @@ void processing_C(double* pInbuf, double* pOutbuf)  //Kopira Ulazni buffer u Izl
 }
 
 
-void processing(double pInbuf[MAX_NUM_CHANNEL][BLOCK_SIZE], double pOutbuf[MAX_NUM_CHANNEL][BLOCK_SIZE]) // da bude matrica !!! void ins (int (*matrix)[SIZE], int row, int column);
+void processing(DSPfract pInbuf[MAX_NUM_CHANNEL][BLOCK_SIZE], DSPfract pOutbuf[MAX_NUM_CHANNEL][BLOCK_SIZE]) // da bude matrica !!! void ins (int (*matrix)[SIZE], int row, int column);
 {
 	//sve mnozim sa gainom
 	processing_S(pInbuf[0], pOutbuf[0]);//L 
@@ -138,60 +184,13 @@ int main(int argc, char* argv[])
 	// Write output WAV header to file
 	//-------------------------------------------------
 	WriteWavHeader(wav_out,outputWAVhdr);
-
-	if(argc - 6 > 0) //Sredjivanje argumenata komandne linije kao parametri funkcije
-	{
-		printf("Too many arguments in fucntion call");
-		return 0;
-	}
-	else if(argc - 3 < 0)
-	{
-		printf("Too few arguments in fucntion call");
-		return 0;
-	}
-
-	if(argc - 6 == 0)
-	{
-		processingState.enable = atoi(argv[3])?1:0;
-		processingState.input_gain = atoi(argv[4]);
-		processingState.mode = atoi(argv[5])?1:0;
-	}
-	else
-	{
-		if(argc - 5 == 0)
-		{
-			processingState.mode = 0;
-			processingState.enable = atoi(argv[3])?1:0;
-			processingState.input_gain = atof(argv[4]);
-		}
-		else
-		{
-			if(argc - 4 == 0)
-			{
-				processingState.mode = 0;
-				processingState.enable = atoi(argv[3])?1:0;
-				processingState.input_gain = -3;
-			}
-			else
-			{
-				processingState.mode = 0;
-				processingState.input_gain = -3;
-				processingState.enable = 1;
-			}
-		}
-	}
-	
-
 	
 	// Initialize process
-	processing_init();
 
-	if(!processingState.enable) //provera da li je enable ukljucen
-	{
-		printf("Processing isn't enabled, exiting program");
-		return 0;
-	}
-    
+
+	int ret = processing_init(argv[3], argv[4], argv[5], argc);
+	if (ret != SUCCESS)
+		return -1;
 
 	// Processing loop
 	//-------------------------------------------------	
@@ -216,7 +215,8 @@ int main(int argc, char* argv[])
 			}
 			
 		
-			processing(sampleBuffer, sampleBuffer); //prosledjujem samo jedan element matrice, ne treba pokazivac, vec moram citavu matricu
+			if(processingState.enable)
+				processing(sampleBuffer, sampleBuffer); //prosledjujem samo jedan element matrice, ne treba pokazivac, vec moram citavu matricu
 			
 			
 			for(int j=0; j<BLOCK_SIZE; j++)
