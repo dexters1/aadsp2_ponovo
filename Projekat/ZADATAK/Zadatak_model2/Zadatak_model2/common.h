@@ -1,6 +1,9 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include "stdfix_emu.h"
+#include "fixed_point_math.h"
+
 #define BLOCK_SIZE 16
 #define MAX_NUM_CHANNEL 8
 #define N_TAP 4

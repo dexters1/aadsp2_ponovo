@@ -1,6 +1,6 @@
 #ifndef TREMOLO1_H
 #define TREMOLO1_H
-
+#
 #include "common.h"
 
 #define PI 3.14159265358979323846
@@ -30,7 +30,7 @@ typedef struct {
 
 extern float lfo();
 extern void init();
-extern void processBlock(double* input, double* output);
+extern void processBlock(DSPfract* input, DSPfract* output);
 
 
 

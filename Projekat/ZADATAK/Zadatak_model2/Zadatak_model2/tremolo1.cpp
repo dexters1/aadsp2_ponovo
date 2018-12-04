@@ -74,7 +74,7 @@ void init() {
 }
 
 
-void processBlock(double* input, double* output) {
+void processBlock(DSPfract* input, DSPfract* output) {
 
 
 
@@ -84,20 +84,21 @@ void processBlock(double* input, double* output) {
 	// the next channel.
 
 
-	double *in = input;
-	double *out = output;
+	DSPfract *in = input;
+	DSPfract *out = output;
 
 	data.ph = data.lfoPhase;
 
-	for (int i = 0; i < BLOCK_SIZE; ++i)
+	for (DSPint i = 0; i < BLOCK_SIZE; ++i)
 	{
 		
 
 		// Ring modulation is easy! Just multiply the waveform by a periodic carrier
-		(*out) = (*in) * (1.0f - data.depth * lfo());
+
+		(*out) = (*in) * (DSPfract)(1.0f - data.depth * lfo()); //toLong??? SAMO 1 da mi bude je worst case scenario
 
 		// Update the carrier and LFO phases, keeping them in the range 0-1
-		data.ph += data.LFO_frequency * data.inverseSampleRate;
+		data.ph += data.LFO_frequency * data.inverseSampleRate; // Gde je korisceno se mnozi sa 2
 		if (data.ph >= 1.0)
 			data.ph -= 1.0;
 
@@ -110,7 +111,7 @@ void processBlock(double* input, double* output) {
 	data.lfoPhase = data.ph;
 }
 
-//==============================================================================
+//==============================================================================// 
 
 float lfo()
 {
