@@ -5,6 +5,7 @@
 
 #define PI 3.14159265358979323846
 
+
 typedef enum
 
 {
@@ -13,22 +14,22 @@ typedef enum
 
 // Adjustable parameters:
 typedef struct {
-	int numChannels;
+	DSPint numChannels;
 
-	float LFO_frequency;  // LFO frequency (Hz)
+	DSPfract LFO_frequency;  // LFO frequency (Hz)
 
-	float depth;      // Depth of effect (0-1)
+	DSPfract depth;      // Depth of effect (0-1)
 
 	wave_forms_t waveform;      // What shape should be used for the LFO
 
-	float lfoPhase;
+	DSPfract lfoPhase;
 
-	float inverseSampleRate;
+	DSPfract inverseSampleRate;
 
-	float ph;
+	DSPfract ph;
 } tremolo_struct_t;
 
-extern float lfo();
+extern DSPfract lfo();
 extern void init();
 extern void processBlock(DSPfract* input, DSPfract* output);
 
