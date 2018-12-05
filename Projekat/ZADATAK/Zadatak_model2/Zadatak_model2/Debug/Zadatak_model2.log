@@ -1,4 +1,4 @@
-﻿Build started 5.12.2018 17:15:50.
+﻿Build started 5.12.2018 18:49:43.
      1>Project "D:\Ra152-2015\aadsp2\Projekat\ZADATAK\Zadatak_model2\Zadatak_model2\Zadatak_model2.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Zadatak_model2.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -28,4 +28,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.58
+Time Elapsed 00:00:00.60

@@ -1,0 +1,385 @@
+1     	 0000					.extern _input_gain
+2     	 0000					.extern _processingState
+3     	 0000					.extern _sampleBuffer
+4     	 0000					.public _gainConverter
+5     	 0000					.extern _init
+6     	 0000					.extern _processBlock
+7     	 0000					.public _processing
+8     	 0000					.public _processing_C
+9     	 0000					.public _processing_S
+10    	 0000					.public _processing_init
+11    							.xdata_ovly
+11     >> start of macro: .xdata_ovly
+1+    									seg_single , "X_OVLY", X
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_X_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "X_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_X_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .xdata_ovly
+12    	 0000				__extractedConst_0_1
+13    	 0000					.dw  (0x5a9df7ac)
+	 0000	 5A9DF7AC	 
+14    							.code_ovly
+14     >> start of macro: .code_ovly
+1+    									seg_single , "CODE_OVLY", CODE
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_CODE_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "CODE_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_CODE_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .code_ovly
+15    						
+16    						
+17    						
+18    	 0000				_gainConverter:			/* LN: 9 | CYCLE: 0 | RULES: () */ 
+19    	 0000	 BB540007		xmem[i7] = i7			# LN: 9 | 
+20    	 0001	 020F7FFF		i7 += 1			# LN: 9 | 
+21    	 0002				cline_9_0:			/* LN: 12 | CYCLE: 0 | RULES: () */ 
+22    	 0002	 88040000		a0 = xmem[_input_gain + 0]			# LN: 12 | 
+23    	 0003	 00004E80		a0 & a0			# LN: 12 | 
+24    	 0004	 85080008		if (a <= 0) jmp (else_0)			# LN: 12 | 
+25    	 0005				cline_12_0:			/* LN: 14 | CYCLE: 0 | RULES: () */ 
+26    	 0005	 00004DC0		a0 = 0			# LN: 14 | 
+27    	 0006	 98440000		xmem[_input_gain + 0] = a0h			# LN: 14 | 
+28    	 0007	 80080008		jmp (endif_0)			# LN: 14 | 
+29    	 0008				cline_14_0:			/* LN: 19 | CYCLE: 0 | RULES: () */ 
+30    	 0008				endif_0:			/* LN: 12 | CYCLE: 0 | RULES: () */ 
+31    	 0008				else_0:			/* LN: 12 | CYCLE: 0 | RULES: () */ 
+32    	 0008	 88040000		a0 = xmem[__extractedConst_0_1 + 0]			# LN: 19 | 
+33    	 0009	 98440000		xmem[_processingState + 0] = a0h			# LN: 19 | 
+34    	 000A				cline_19_0:			/* LN: 21 | CYCLE: 0 | RULES: () */ 
+35    	 000A	 8008000B		jmp (__epilogue_226)			# LN: 21 | 
+36    	 000B				__epilogue_226:			/* LN: 21 | CYCLE: 0 | RULES: () */ 
+37    	 000B	 02177FFF		i7 -= 1			# LN: 21 | 
+38    	 000C	 81880000		ret			# LN: 21 | 
+39    						
+40    						
+41    						
+42    	 000D				_processing:			/* LN: 70 | CYCLE: 0 | RULES: () */ 
+43    	 000D	 BB540007		xmem[i7] = i7			# LN: 70 | 
+44    	 000E	 020F7FFF		i7 += 1			# LN: 70 | 
+45    	 000F	 87750002		i7 = i7 + (0x2)			# LN: 70 | 
+46    	 0010	 94750001		i4 = i7 - (0x1)			# LN: 70 | 
+47    	 0011	 B0540004		xmem[i4] = i0			# LN: 70 | 
+48    	 0012	 90750002		i0 = i7 - (0x2)			# LN: 70 | 
+49    	 0013	 B1540000		xmem[i0] = i1			# LN: 70 | 
+50    	 0014				cline_70_0:			/* LN: 73 | CYCLE: 0 | RULES: () */ 
+51    	 0014	 90750001		i0 = i7 - (0x1)			# LN: 73 | 
+52    	 0015	 B0140000		i0 = xmem[i0]			# LN: 73 | 
+53    	 0016	 91750002		i1 = i7 - (0x2)			# LN: 73 | 
+54    	 0017	 B1140001		i1 = xmem[i1]			# LN: 73 | 
+55    	 0018	 80880071		call (_processing_S)			# LN: 73 | 
+56    	 0019				cline_73_0:			/* LN: 74 | CYCLE: 0 | RULES: () */ 
+57    	 0019	 90750001		i0 = i7 - (0x1)			# LN: 74 | 
+58    	 001A	 B0140000		i0 = xmem[i0]			# LN: 74 | 
+59    	 001B	 91750002		i1 = i7 - (0x2)			# LN: 74 | 
+60    	 001C	 B1140001		i1 = xmem[i1]			# LN: 74 | 
+61    	 001D	 80050010		i0 = i0 + (0x10)			# LN: 74 | 
+62    	 001E	 81150010		i1 = i1 + (0x10)			# LN: 74 | 
+63    	 001F	 80880071		call (_processing_S)			# LN: 74 | 
+64    	 0020				cline_74_0:			/* LN: 75 | CYCLE: 0 | RULES: () */ 
+65    	 0020	 90750001		i0 = i7 - (0x1)			# LN: 75 | 
+66    	 0021	 91750002		i1 = i7 - (0x2)			# LN: 75 | 
+67    	 0022	 B1140001		i1 = xmem[i1]			# LN: 75 | 
+68    	 0023	 B0140000		i0 = xmem[i0]			# LN: 75 | 
+69    	 0024	 81150020		i1 = i1 + (0x20)			# LN: 75 | 
+70    	 0025	 80880044		call (_processing_C)			# LN: 75 | 
+71    	 0026				cline_75_0:			/* LN: 76 | CYCLE: 0 | RULES: () */ 
+72    	 0026	 90750001		i0 = i7 - (0x1)			# LN: 76 | 
+73    	 0027	 B0140000		i0 = xmem[i0]			# LN: 76 | 
+74    	 0028	 91750002		i1 = i7 - (0x2)			# LN: 76 | 
+75    	 0029	 B1140001		i1 = xmem[i1]			# LN: 76 | 
+76    	 002A	 80050010		i0 = i0 + (0x10)			# LN: 76 | 
+77    	 002B	 81150030		i1 = i1 + (0x30)			# LN: 76 | 
+78    	 002C	 80880044		call (_processing_C)			# LN: 76 | 
+79    	 002D				cline_76_0:			/* LN: 78 | CYCLE: 0 | RULES: () */ 
+80    	 002D	 88040000		a0 = xmem[_processingState + 1]			# LN: 78 | 
+81    	 002E	 894A0001		uhalfword(a1) = (0x1)			# LN: 78 | 
+82    	 002F	 00004448		a0 = a0 - a1			# LN: 78 | 
+83    	 0030	 A04A0000		a0g = (0x0)			# LN: 78 | 
+84    	 0031	 00004E80		a0 & a0			# LN: 78 | 
+85    	 0032	 84480040		if (a != 0) jmp (else_1)			# LN: 78 | 
+86    	 0033				cline_78_0:			/* LN: 80 | CYCLE: 0 | RULES: () */ 
+87    	 0033	 90750001		i0 = i7 - (0x1)			# LN: 80 | 
+88    	 0034	 B0140000		i0 = xmem[i0]			# LN: 80 | 
+89    	 0035	 91750002		i1 = i7 - (0x2)			# LN: 80 | 
+90    	 0036	 B1140001		i1 = xmem[i1]			# LN: 80 | 
+91    	 0037	 80880000		call (_processBlock)			# LN: 80 | 
+92    	 0038				cline_80_0:			/* LN: 81 | CYCLE: 0 | RULES: () */ 
+93    	 0038	 90750001		i0 = i7 - (0x1)			# LN: 81 | 
+94    	 0039	 B0140000		i0 = xmem[i0]			# LN: 81 | 
+95    	 003A	 91750002		i1 = i7 - (0x2)			# LN: 81 | 
+96    	 003B	 B1140001		i1 = xmem[i1]			# LN: 81 | 
+97    	 003C	 80050010		i0 = i0 + (0x10)			# LN: 81 | 
+98    	 003D	 81150010		i1 = i1 + (0x10)			# LN: 81 | 
+99    	 003E	 80880000		call (_processBlock)			# LN: 81 | 
+100   	 003F	 80080040		jmp (endif_1)			# LN: 81 | 
+101   	 0040				cline_81_0:			/* LN: 84 | CYCLE: 0 | RULES: () */ 
+102   	 0040				endif_1:			/* LN: 78 | CYCLE: 0 | RULES: () */ 
+103   	 0040				else_1:			/* LN: 78 | CYCLE: 0 | RULES: () */ 
+104   	 0040	 80080041		jmp (__epilogue_234)			# LN: 84 | 
+105   	 0041				__epilogue_234:			/* LN: 84 | CYCLE: 0 | RULES: () */ 
+106   	 0041	 97750002		i7 = i7 - (0x2)			# LN: 84 | 
+107   	 0042	 02177FFF		i7 -= 1			# LN: 84 | 
+108   	 0043	 81880000		ret			# LN: 84 | 
+109   						
+110   						
+111   						
+112   	 0044				_processing_C:			/* LN: 54 | CYCLE: 0 | RULES: () */ 
+113   	 0044	 BB540007		xmem[i7] = i7			# LN: 54 | 
+114   	 0045	 020F7FFF		i7 += 1			# LN: 54 | 
+115   	 0046	 87750005		i7 = i7 + (0x5)			# LN: 54 | 
+116   	 0047	 94750001		i4 = i7 - (0x1)			# LN: 54 | 
+117   	 0048	 B0540004		xmem[i4] = i0			# LN: 54 | 
+118   	 0049	 90750002		i0 = i7 - (0x2)			# LN: 54 | 
+119   	 004A	 B1540000		xmem[i0] = i1			# LN: 54 | 
+120   	 004B				cline_54_0:			/* LN: 56 | CYCLE: 0 | RULES: () */ 
+121   	 004B	 90750001		i0 = i7 - (0x1)			# LN: 56 | 
+122   	 004C	 88140000		a0 = xmem[i0]			# LN: 56 | 
+123   	 004D	 90750003		i0 = i7 - (0x3)			# LN: 56 | 
+124   	 004E	 88540000		xmem[i0] = a0			# LN: 56 | 
+125   	 004F				cline_56_0:			/* LN: 57 | CYCLE: 0 | RULES: () */ 
+126   	 004F	 90750002		i0 = i7 - (0x2)			# LN: 57 | 
+127   	 0050	 88140000		a0 = xmem[i0]			# LN: 57 | 
+128   	 0051	 90750004		i0 = i7 - (0x4)			# LN: 57 | 
+129   	 0052	 88540000		xmem[i0] = a0			# LN: 57 | 
+130   	 0053				cline_57_0:			/* LN: 60 | CYCLE: 0 | RULES: () */ 
+131   	 0053	 90750005		i0 = i7 - (0x5)			# LN: 60 | 
+132   	 0054	 00004DC0		a0 = 0			# LN: 60 | 
+133   	 0055	 98540000		xmem[i0] = a0h			# LN: 60 | 
+134   	 0056	 8100006C		do (0x10), label_end_92			# LN: 60 | 
+135   	 0057				cline_60_0:			/* LN: 63 | CYCLE: 0 | RULES: () */ 
+136   	 0057				label_begin_92:			/* LN: 60 | CYCLE: 0 | RULES: () */ 
+137   	 0057	 90750003		i0 = i7 - (0x3)			# LN: 63 | 
+138   	 0058	 B0140000		i0 = xmem[i0]			# LN: 63 | 
+139   	 0059	 91750004		i1 = i7 - (0x4)			# LN: 63 | 
+140   	 005A	 B1140001		i1 = xmem[i1]			# LN: 63 | 
+141   	 005B	 88140000		a0 = xmem[i0]			# LN: 63 | 
+142   	 005C	 98540001		xmem[i1] = a0h			# LN: 63 | 
+143   	 005D				cline_63_0:			/* LN: 64 | CYCLE: 0 | RULES: () */ 
+144   	 005D	 90750003		i0 = i7 - (0x3)			# LN: 64 | 
+145   	 005E	 B0140000		i0 = xmem[i0]			# LN: 64 | 
+146   	 005F	 91750003		i1 = i7 - (0x3)			# LN: 64 | 
+147   	 0060	 02087FFF		i0 += 1			# LN: 64 | 
+148   	 0061	 B0540001		xmem[i1] = i0			# LN: 64 | 
+149   	 0062				cline_64_0:			/* LN: 65 | CYCLE: 0 | RULES: () */ 
+150   	 0062	 90750004		i0 = i7 - (0x4)			# LN: 65 | 
+151   	 0063	 B0140000		i0 = xmem[i0]			# LN: 65 | 
+152   	 0064	 91750004		i1 = i7 - (0x4)			# LN: 65 | 
+153   	 0065	 02087FFF		i0 += 1			# LN: 65 | 
+154   	 0066	 B0540001		xmem[i1] = i0			# LN: 65 | 
+155   	 0067				cline_65_0:			/* LN: 60 | CYCLE: 0 | RULES: () */ 
+156   	 0067				init_latch_label_1:			/* LN: 66 | CYCLE: 0 | RULES: () */ 
+157   	 0067	 90750005		i0 = i7 - (0x5)			# LN: 60 | 
+158   	 0068	 88140000		a0 = xmem[i0]			# LN: 60 | 
+159   	 0069	 894A0001		uhalfword(a1) = (0x1)			# LN: 60 | 
+160   	 006A	 00004408		a0 = a0 + a1			# LN: 60 | 
+161   	 006B	 90750005		i0 = i7 - (0x5)			# LN: 60 | 
+162   	 006C				label_end_92:			# LN: 60 | CYCLE: 5 | RULES: ()
+163   	 006C	 98540000		xmem[i0] = a0h			# LN: 60 | 
+164   	 006D				cline_60_1:			/* LN: 67 | CYCLE: 0 | RULES: () */ 
+165   	 006D				for_end_1:			/* LN: 60 | CYCLE: 0 | RULES: () */ 
+166   	 006D	 8008006E		jmp (__epilogue_232)			# LN: 67 | 
+167   	 006E				__epilogue_232:			/* LN: 67 | CYCLE: 0 | RULES: () */ 
+168   	 006E	 97750005		i7 = i7 - (0x5)			# LN: 67 | 
+169   	 006F	 02177FFF		i7 -= 1			# LN: 67 | 
+170   	 0070	 81880000		ret			# LN: 67 | 
+171   						
+172   						
+173   						
+174   	 0071				_processing_S:			/* LN: 39 | CYCLE: 0 | RULES: () */ 
+175   	 0071	 BB540007		xmem[i7] = i7			# LN: 39 | 
+176   	 0072	 020F7FFF		i7 += 1			# LN: 39 | 
+177   	 0073	 87750005		i7 = i7 + (0x5)			# LN: 39 | 
+178   	 0074	 94750001		i4 = i7 - (0x1)			# LN: 39 | 
+179   	 0075	 B0540004		xmem[i4] = i0			# LN: 39 | 
+180   	 0076	 90750002		i0 = i7 - (0x2)			# LN: 39 | 
+181   	 0077	 B1540000		xmem[i0] = i1			# LN: 39 | 
+182   	 0078				cline_39_0:			/* LN: 41 | CYCLE: 0 | RULES: () */ 
+183   	 0078	 90750001		i0 = i7 - (0x1)			# LN: 41 | 
+184   	 0079	 88140000		a0 = xmem[i0]			# LN: 41 | 
+185   	 007A	 90750003		i0 = i7 - (0x3)			# LN: 41 | 
+186   	 007B	 88540000		xmem[i0] = a0			# LN: 41 | 
+187   	 007C				cline_41_0:			/* LN: 42 | CYCLE: 0 | RULES: () */ 
+188   	 007C	 90750002		i0 = i7 - (0x2)			# LN: 42 | 
+189   	 007D	 88140000		a0 = xmem[i0]			# LN: 42 | 
+190   	 007E	 90750004		i0 = i7 - (0x4)			# LN: 42 | 
+191   	 007F	 88540000		xmem[i0] = a0			# LN: 42 | 
+192   	 0080				cline_42_0:			/* LN: 45 | CYCLE: 0 | RULES: () */ 
+193   	 0080	 90750005		i0 = i7 - (0x5)			# LN: 45 | 
+194   	 0081	 00004DC0		a0 = 0			# LN: 45 | 
+195   	 0082	 98540000		xmem[i0] = a0h			# LN: 45 | 
+196   	 0083	 8100009B		do (0x10), label_end_93			# LN: 45 | 
+197   	 0084				cline_45_0:			/* LN: 48 | CYCLE: 0 | RULES: () */ 
+198   	 0084				label_begin_93:			/* LN: 45 | CYCLE: 0 | RULES: () */ 
+199   	 0084	 90750003		i0 = i7 - (0x3)			# LN: 48 | 
+200   	 0085	 B0140000		i0 = xmem[i0]			# LN: 48 | 
+201   	 0086	 80040000		x0 = xmem[_processingState + 0]			# LN: 48 | 
+202   	 0087	 81140000		x1 = xmem[i0]			# LN: 48 | 
+203   	 0088	 90750004		i0 = i7 - (0x4)			# LN: 48 | 
+204   	 0089	 B0140000		i0 = xmem[i0]			# LN: 48 | 
+205   	 008A	 00002020		a0 = x1 * x0			# LN: 48 | 
+206   	 008B	 88540000		xmem[i0] = a0			# LN: 48 | 
+207   	 008C				cline_48_0:			/* LN: 49 | CYCLE: 0 | RULES: () */ 
+208   	 008C	 90750003		i0 = i7 - (0x3)			# LN: 49 | 
+209   	 008D	 B0140000		i0 = xmem[i0]			# LN: 49 | 
+210   	 008E	 91750003		i1 = i7 - (0x3)			# LN: 49 | 
+211   	 008F	 02087FFF		i0 += 1			# LN: 49 | 
+212   	 0090	 B0540001		xmem[i1] = i0			# LN: 49 | 
+213   	 0091				cline_49_0:			/* LN: 50 | CYCLE: 0 | RULES: () */ 
+214   	 0091	 90750004		i0 = i7 - (0x4)			# LN: 50 | 
+215   	 0092	 B0140000		i0 = xmem[i0]			# LN: 50 | 
+216   	 0093	 91750004		i1 = i7 - (0x4)			# LN: 50 | 
+217   	 0094	 02087FFF		i0 += 1			# LN: 50 | 
+218   	 0095	 B0540001		xmem[i1] = i0			# LN: 50 | 
+219   	 0096				cline_50_0:			/* LN: 45 | CYCLE: 0 | RULES: () */ 
+220   	 0096				init_latch_label_0:			/* LN: 51 | CYCLE: 0 | RULES: () */ 
+221   	 0096	 90750005		i0 = i7 - (0x5)			# LN: 45 | 
+222   	 0097	 88140000		a0 = xmem[i0]			# LN: 45 | 
+223   	 0098	 894A0001		uhalfword(a1) = (0x1)			# LN: 45 | 
+224   	 0099	 00004408		a0 = a0 + a1			# LN: 45 | 
+225   	 009A	 90750005		i0 = i7 - (0x5)			# LN: 45 | 
+226   	 009B				label_end_93:			# LN: 45 | CYCLE: 5 | RULES: ()
+227   	 009B	 98540000		xmem[i0] = a0h			# LN: 45 | 
+228   	 009C				cline_45_1:			/* LN: 52 | CYCLE: 0 | RULES: () */ 
+229   	 009C				for_end_0:			/* LN: 45 | CYCLE: 0 | RULES: () */ 
+230   	 009C	 8008009D		jmp (__epilogue_230)			# LN: 52 | 
+231   	 009D				__epilogue_230:			/* LN: 52 | CYCLE: 0 | RULES: () */ 
+232   	 009D	 97750005		i7 = i7 - (0x5)			# LN: 52 | 
+233   	 009E	 02177FFF		i7 -= 1			# LN: 52 | 
+234   	 009F	 81880000		ret			# LN: 52 | 
+235   						
+236   						
+237   						
+238   	 00A0				_processing_init:			/* LN: 25 | CYCLE: 0 | RULES: () */ 
+239   	 00A0	 BB540007		xmem[i7] = i7			# LN: 25 | 
+240   	 00A1	 020F7FFF		i7 += 1			# LN: 25 | 
+241   	 00A2	 87750004		i7 = i7 + (0x4)			# LN: 25 | 
+242   	 00A3	 90750001		i0 = i7 - (0x1)			# LN: 25 | 
+243   	 00A4	 98540000		xmem[i0] = a0h			# LN: 25 | 
+244   	 00A5	 90750002		i0 = i7 - (0x2)			# LN: 25 | 
+245   	 00A6	 99540000		xmem[i0] = a1h			# LN: 25 | 
+246   	 00A7	 90750003		i0 = i7 - (0x3)			# LN: 25 | 
+247   	 00A8	 9C540000		xmem[i0] = b0h			# LN: 25 | 
+248   	 00A9	 90750004		i0 = i7 - (0x4)			# LN: 25 | 
+249   	 00AA	 9D540000		xmem[i0] = b1h			# LN: 25 | 
+250   	 00AB				cline_25_0:			/* LN: 27 | CYCLE: 0 | RULES: () */ 
+251   	 00AB	 80880000		call (_init)			# LN: 27 | 
+252   	 00AC				cline_27_0:			/* LN: 30 | CYCLE: 0 | RULES: () */ 
+253   	 00AC	 90750003		i0 = i7 - (0x3)			# LN: 30 | 
+254   	 00AD	 88140000		a0 = xmem[i0]			# LN: 30 | 
+255   	 00AE	 98440000		xmem[_processingState + 1] = a0h			# LN: 30 | 
+256   	 00AF				cline_30_0:			/* LN: 31 | CYCLE: 0 | RULES: () */ 
+257   	 00AF	 90750001		i0 = i7 - (0x1)			# LN: 31 | 
+258   	 00B0	 88140000		a0 = xmem[i0]			# LN: 31 | 
+259   	 00B1	 98440000		xmem[_processingState + 2] = a0h			# LN: 31 | 
+260   	 00B2				cline_31_0:			/* LN: 33 | CYCLE: 0 | RULES: () */ 
+261   	 00B2	 80880000		call (_gainConverter)			# LN: 33 | 
+262   	 00B3				cline_33_0:			/* LN: 35 | CYCLE: 0 | RULES: () */ 
+263   	 00B3	 00004DC0		a0 = 0			# LN: 35 | 
+264   	 00B4	 800800B5		jmp (__epilogue_228)			# LN: 35 | 
+265   	 00B5				cline_35_0:			/* LN: 36 | CYCLE: 0 | RULES: () */ 
+266   	 00B5				__epilogue_228:			/* LN: 36 | CYCLE: 0 | RULES: () */ 
+267   	 00B5	 97750004		i7 = i7 - (0x4)			# LN: 36 | 
+268   	 00B6	 02177FFF		i7 -= 1			# LN: 36 | 
+269   	 00B7	 81880000		ret			# LN: 36 | 
+270   						(null)
+				 SYMBOL TABLE 
+
+    Name                                                                                    Type                  Value 
+
+_COMMON_INC_PATH_                                                               					 Define                 "C:/CirrusDSP/crystal32/common/inc/"
+_DSP_                                                                           					 Define                 "a"
+_LOCAL_INC_PATH_                                                                					 Define                 "inc/"
+_LOCAL_SRC_PATH_                                                                					 Define                 "src/"
+_MUI_VERSION_                                                                   					 Define                 "020000"
+_OVLY_                                                                          					 Define                 "standalone"
+_OVLY_REVISION_                                                                 					 Define                 "020000"
+_ROUTER_INC_PATH_                                                               					 Define                 "rom_inc/"
+_SLOT_                                                                          					 Define                 "0"
+_TARGET_FAMILY_                                                                 					 Define                 "crystal32"
+_TOOLS_VERSION_                                                                 					 Define                 "0x0701"
+_VERSION_                                                                       					 Define                 "00"
+__CASM_VER__                                                                    			  Unused Variable		        0 (701H)
+__epilogue_226                                                                  			         Relocatable         processing_GEN_0001:000BH
+__epilogue_228                                                                  			         Relocatable         processing_GEN_0001:00B5H
+__epilogue_230                                                                  			         Relocatable         processing_GEN_0001:009DH
+__epilogue_232                                                                  			         Relocatable         processing_GEN_0001:006EH
+__epilogue_234                                                                  			         Relocatable         processing_GEN_0001:0041H
+__extractedConst_0_1                                                            			         Relocatable         processing_GEN_0000:0000H
+_gainConverter                                                                  			  Public Relocatable       processing_GEN_0001:0000H
+_init                                                                           					 External   
+_input_gain                                                                     					 External   
+_processBlock                                                                   					 External   
+_processing                                                                     			  Public Relocatable       processing_GEN_0001:000DH
+_processingState                                                                					 External   
+_processing_C                                                                   			  Public Relocatable       processing_GEN_0001:0044H
+_processing_S                                                                   			  Public Relocatable       processing_GEN_0001:0071H
+_processing_init                                                                			  Public Relocatable       processing_GEN_0001:00A0H
+_sampleBuffer                                                                   					 External   
+cline_12_0                                                                      			  Unused Relocatable        processing_GEN_0001:0005H
+cline_14_0                                                                      			  Unused Relocatable        processing_GEN_0001:0008H
+cline_19_0                                                                      			  Unused Relocatable        processing_GEN_0001:000AH
+cline_25_0                                                                      			  Unused Relocatable        processing_GEN_0001:00ABH
+cline_27_0                                                                      			  Unused Relocatable        processing_GEN_0001:00ACH
+cline_30_0                                                                      			  Unused Relocatable        processing_GEN_0001:00AFH
+cline_31_0                                                                      			  Unused Relocatable        processing_GEN_0001:00B2H
+cline_33_0                                                                      			  Unused Relocatable        processing_GEN_0001:00B3H
+cline_35_0                                                                      			  Unused Relocatable        processing_GEN_0001:00B5H
+cline_39_0                                                                      			  Unused Relocatable        processing_GEN_0001:0078H
+cline_41_0                                                                      			  Unused Relocatable        processing_GEN_0001:007CH
+cline_42_0                                                                      			  Unused Relocatable        processing_GEN_0001:0080H
+cline_45_0                                                                      			  Unused Relocatable        processing_GEN_0001:0084H
+cline_45_1                                                                      			  Unused Relocatable        processing_GEN_0001:009CH
+cline_48_0                                                                      			  Unused Relocatable        processing_GEN_0001:008CH
+cline_49_0                                                                      			  Unused Relocatable        processing_GEN_0001:0091H
+cline_50_0                                                                      			  Unused Relocatable        processing_GEN_0001:0096H
+cline_54_0                                                                      			  Unused Relocatable        processing_GEN_0001:004BH
+cline_56_0                                                                      			  Unused Relocatable        processing_GEN_0001:004FH
+cline_57_0                                                                      			  Unused Relocatable        processing_GEN_0001:0053H
+cline_60_0                                                                      			  Unused Relocatable        processing_GEN_0001:0057H
+cline_60_1                                                                      			  Unused Relocatable        processing_GEN_0001:006DH
+cline_63_0                                                                      			  Unused Relocatable        processing_GEN_0001:005DH
+cline_64_0                                                                      			  Unused Relocatable        processing_GEN_0001:0062H
+cline_65_0                                                                      			  Unused Relocatable        processing_GEN_0001:0067H
+cline_70_0                                                                      			  Unused Relocatable        processing_GEN_0001:0014H
+cline_73_0                                                                      			  Unused Relocatable        processing_GEN_0001:0019H
+cline_74_0                                                                      			  Unused Relocatable        processing_GEN_0001:0020H
+cline_75_0                                                                      			  Unused Relocatable        processing_GEN_0001:0026H
+cline_76_0                                                                      			  Unused Relocatable        processing_GEN_0001:002DH
+cline_78_0                                                                      			  Unused Relocatable        processing_GEN_0001:0033H
+cline_80_0                                                                      			  Unused Relocatable        processing_GEN_0001:0038H
+cline_81_0                                                                      			  Unused Relocatable        processing_GEN_0001:0040H
+cline_9_0                                                                       			  Unused Relocatable        processing_GEN_0001:0002H
+else_0                                                                          			         Relocatable         processing_GEN_0001:0008H
+else_1                                                                          			         Relocatable         processing_GEN_0001:0040H
+endif_0                                                                         			         Relocatable         processing_GEN_0001:0008H
+endif_1                                                                         			         Relocatable         processing_GEN_0001:0040H
+for_end_0                                                                       			  Unused Relocatable        processing_GEN_0001:009CH
+for_end_1                                                                       			  Unused Relocatable        processing_GEN_0001:006DH
+init_latch_label_0                                                              			  Unused Relocatable        processing_GEN_0001:0096H
+init_latch_label_1                                                              			  Unused Relocatable        processing_GEN_0001:0067H
+label_begin_92                                                                  			  Unused Relocatable        processing_GEN_0001:0057H
+label_begin_93                                                                  			  Unused Relocatable        processing_GEN_0001:0084H
+label_end_92                                                                    			         Relocatable         processing_GEN_0001:006CH
+label_end_93                                                                    			         Relocatable         processing_GEN_0001:009BH
+
+	       SEGMENTS:
+
+Size			  Name										 Class
+0000H	 __INIT                                  			 CODE                                    
+0001H	 processing_GEN_0000                     			 X_OVLY                                  
+00B8H	 processing_GEN_0001                     			 CODE_OVLY                               

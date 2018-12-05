@@ -94,13 +94,13 @@ void processBlock(double* input, double* output) {
 		
 
 		// Ring modulation is easy! Just multiply the waveform by a periodic carrier
-		(*out) = (*in) * (1.0f - data.depth * lfo());
+		(*out) = (*in) * (1.0 - data.depth * lfo());
 
 		// Update the carrier and LFO phases, keeping them in the range 0-1
 		data.ph += data.LFO_frequency * data.inverseSampleRate;
 		if (data.ph >= 1.0)
 			data.ph -= 1.0;
-			
+
 		
 
 		out++;
@@ -119,18 +119,18 @@ float lfo()
 	switch (data.waveform)
 	{
 	case kWaveformTriangle:
-		if (data.ph < 0.25f)
-			return 0.5f + 2.0f * data.ph;
-		else if (data.ph <  0.75f)
-			return 1.0f - 2.0f * (data.ph - 0.25f);
+		if (data.ph < 0.25)
+			return 0.5 + 2.0 * data.ph;
+		else if (data.ph <  0.75)
+			return 1.0 - 2.0 * (data.ph - 0.25);
 		else
-			return 2.0f * (data.ph - 0.75f);
+			return 2.0 * (data.ph - 0.75);
 
 	case kWaveformSquare:
-		if (data.ph <  0.5f)
-			return 1.0f;
+		if (data.ph <  0.5)
+			return 1.0;
 		else
-			return 0.0f;
+			return 0.0;
 	default:
 		return 1.0;
 	}

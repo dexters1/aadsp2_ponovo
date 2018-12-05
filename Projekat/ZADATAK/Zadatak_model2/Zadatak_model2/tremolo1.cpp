@@ -59,7 +59,7 @@
 
 
 
-float lfo(float phase, wave_forms_t waveform);
+DSPfract lfo(float phase, wave_forms_t waveform);
 tremolo_struct_t data;
 
 void init() {
@@ -73,7 +73,6 @@ void init() {
 	data.ph = data.lfoPhase;
 }
 
-DSPint g_lfo_scale = 1;
 
 void processBlock(DSPfract* input, DSPfract* output) {
 
@@ -88,6 +87,8 @@ void processBlock(DSPfract* input, DSPfract* output) {
 	DSPfract *in = input;
 	DSPfract *out = output;
 	DSPaccum compare;
+	DSPfract shift;
+	DSPfract shifted;
 	
 
 	data.ph = data.lfoPhase;
@@ -97,24 +98,22 @@ void processBlock(DSPfract* input, DSPfract* output) {
 		
 
 		// Ring modulation is easy! Just multiply the waveform by a periodic carrier
-		DSPfract shift = (FRACT_NUM(1.0f) - data.depth * lfo());
+		shift = (FRACT_NUM(1.0) - data.depth * lfo());
 
 		(*out) = (*in) * shift; //toLong??? SAMO 1 da mi bude je worst case scenario
 
 		// Update the carrier and LFO phases, keeping them in the range 0-1
-		DSPfract shifted = (data.LFO_frequency * data.inverseSampleRate);
+		
+		
+		shifted = (data.LFO_frequency * data.inverseSampleRate)<<1;
+		data.ph = (data.ph + shifted)>>1; //bez siftovanja prelazi preko 1
 
-
-		data.ph = data.ph >> 1 + shifted; //Ovo sabiranjem izlazi iz opsega, sta onda da radim?
-
-		if (data.ph >= FRACT_NUM(0.5))
+		if (data.ph >= FRACT_NUM(0.5)) // da li je vec presao preko 1
 		{
 			data.ph -= FRACT_NUM(0.5);
 		}
 
-		data.ph = data.ph<<1;
-		
-		
+		data.ph = (data.ph<<1); //vratis u normalnu
 
 		out++;
 		in++;
@@ -132,28 +131,28 @@ DSPfract lfo()
 	switch (data.waveform)
 	{
 	case kWaveformTriangle:
-		if (data.ph < FRACT_NUM(0.25f))
+		if (data.ph < FRACT_NUM(0.25))
 		{
-			return FRACT_NUM(0.5f) + (FRACT_NUM(2.0f/2) * data.ph)*2; //da li data ph menja fz
+			return FRACT_NUM(0.5) + (FRACT_NUM(2.0/2) * data.ph)*2; //da li data ph menja fz
 		}
-		else if (data.ph <  FRACT_NUM(0.75f))
+		else if (data.ph <  FRACT_NUM(0.75))
 		{
-			return FRACT_NUM(1.0f) - (FRACT_NUM(2.0f/2) * (data.ph - FRACT_NUM(0.25f)))*2; /*!!!!!!!DODAO SAM *2*/
+			return FRACT_NUM(1.0) - (FRACT_NUM(2.0/2) * (data.ph - FRACT_NUM(0.25)))*2; /*!!!!!!!DODAO SAM *2*/
 		}
 		else
 		{
-			return (FRACT_NUM(2.0f/2) * (data.ph - FRACT_NUM(0.75f)))<<1;
+			return (FRACT_NUM(2.0/2) * (data.ph - FRACT_NUM(0.75)))<<1;
 		}
 
 	case kWaveformSquare:
-		if (data.ph <  FRACT_NUM(0.5f))
+		if (data.ph <  FRACT_NUM(0.5))
 		{
 
-			return FRACT_NUM(1.0f);
+			return FRACT_NUM(1.0);
 		}
 		else
 		{
-			return FRACT_NUM(0.0f);
+			return FRACT_NUM(0.0);
 		}
 	default:
 		return FRACT_NUM(1.0);

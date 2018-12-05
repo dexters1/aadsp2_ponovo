@@ -1,5 +1,5 @@
-﻿Build started 3.12.2018 18:04:41.
-     1>Project "D:\Ra152-2015\aadsp2\Projekat\Zadatak_model0\Zadatak_model0\Zadatak_model0\Zadatak_model0.vcxproj" on node 2 (build target(s)).
+﻿Build started 5.12.2018 18:39:08.
+     1>Project "D:\Ra152-2015\aadsp2\Projekat\ZADATAK\Zadatak_model0\Zadatak_model0\Zadatak_model0.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Zadatak_model0.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -13,8 +13,8 @@
        FinalizeBuildStatus:
          Deleting file "Debug\Zadatak_model0.unsuccessfulbuild".
          Touching "Debug\Zadatak_model0.lastbuildstate".
-     1>Done Building Project "D:\Ra152-2015\aadsp2\Projekat\Zadatak_model0\Zadatak_model0\Zadatak_model0\Zadatak_model0.vcxproj" (build target(s)).
+     1>Done Building Project "D:\Ra152-2015\aadsp2\Projekat\ZADATAK\Zadatak_model0\Zadatak_model0\Zadatak_model0.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.05
+Time Elapsed 00:00:00.04

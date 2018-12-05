@@ -1,0 +1,50 @@
+!SESSION 2018-12-05 17:22:21.229 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=sr
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data @noDefault
+
+!ENTRY org.eclipse.jface 2 0 2018-12-05 18:03:44.729
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-12-05 18:03:44.729
+!MESSAGE A conflict occurred for CTRL+F10:
+Binding(CTRL+F10,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.RunToLine,Run to Line,
+		Resume and break when execution reaches the current line,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.debug.internal.ui.actions.RetargetRunToLineAction),
+		,,true),null),
+	CLIDE.DefaultKeyScheme,
+	org.eclipse.debug.ui.debugging,,,system)
+Binding(CTRL+F10,
+	ParameterizedCommand(Command(org.eclipse.ui.window.showViewMenu,Show View Menu,
+		Show the view menu,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.ShowViewMenuHandler@d708,
+		,,true),null),
+	CLIDE.DefaultKeyScheme,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+F10,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.showRulerContextMenu,Show Ruler Context Menu,
+		Show the context menu for the ruler,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=org.eclipse.ui.texteditor.AbstractTextEditor$ShowRulerContextMenuAction@1257e6f)),
+		,,true),null),
+	CLIDE.DefaultKeyScheme,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY com.cirrus.cdm 4 0 2018-12-05 18:03:46.142
+!MESSAGE No devices found
+!STACK 0
+com.cirrus.cdm.comm.ProxyServerException: No devices found
+	at com.cirrus.cdm.comm.internal.CpsDeviceCommunicator.sendCommand(CpsDeviceCommunicator.java:180)
+	at com.cirrus.cdm.comm.internal.CpsDeviceCommunicator.commandChannelConnect(CpsDeviceCommunicator.java:143)
+	at com.cirrus.cdm.device.CpsDeviceCommunicatorWithGuard.commandChannelConnect(CpsDeviceCommunicatorWithGuard.java:39)
+	at com.cirrus.cdm.device.CpsDeviceCommunicatorWithGuard.commandChannelConnect(CpsDeviceCommunicatorWithGuard.java:39)
+	at com.cirrus.cdm.device.CPSDevice.connectToCPS(CPSDevice.java:88)
+	at com.cirrus.cdm.device.CPSDevice.<init>(CPSDevice.java:74)
+	at com.cirrus.cdm.device.CPSDevice.<init>(CPSDevice.java:83)
+	at com.cirrus.cdm.device.internal.CPSDeviceCache.getDebugDevice(CPSDeviceCache.java:66)
+	at clide.debug.core.model.PDADebugTarget.getCpsDevice(PDADebugTarget.java:198)
+	at clide.debug.ui.console.SimulatorConsoleListener$UpdateThread.run(SimulatorConsoleListener.java:155)
