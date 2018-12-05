@@ -65,8 +65,8 @@ tremolo_struct_t data;
 void init() {
 
 	// Set default values:
-	data.LFO_frequency = FRACT_NUM(2.0/4);
-	data.depth = FRACT_NUM(1.0/2);
+	data.LFO_frequency = FRACT_NUM(2.0/2);
+	data.depth = FRACT_NUM(1.0);
 	data.waveform = kWaveformSquare;
 	data.lfoPhase = FRACT_NUM(0.0);
 	data.inverseSampleRate = FRACT_NUM(1.0 / SAMPLE_RATE);
@@ -74,7 +74,6 @@ void init() {
 }
 
 DSPint g_lfo_scale = 1;
-DSPint g_data_ph_scale = 1;
 
 void processBlock(DSPfract* input, DSPfract* output) {
 
@@ -88,6 +87,7 @@ void processBlock(DSPfract* input, DSPfract* output) {
 
 	DSPfract *in = input;
 	DSPfract *out = output;
+	DSPaccum compare;
 	
 
 	data.ph = data.lfoPhase;
@@ -97,13 +97,24 @@ void processBlock(DSPfract* input, DSPfract* output) {
 		
 
 		// Ring modulation is easy! Just multiply the waveform by a periodic carrier
+		DSPfract shift = (FRACT_NUM(1.0f) - data.depth * lfo());
 
-		(*out) = (*in) * (DSPfract)(FRACT_NUM(1.0f/2) - data.depth * lfo()*g_lfo_scale/*I ovde treba da siftuje*/)*2; //toLong??? SAMO 1 da mi bude je worst case scenario
+		(*out) = (*in) * shift; //toLong??? SAMO 1 da mi bude je worst case scenario
 
 		// Update the carrier and LFO phases, keeping them in the range 0-1
-		data.ph = data.ph + data.LFO_frequency * data.inverseSampleRate*4; // Je l' se mnozi sa 4 jer koristi frequency?
-		if (data.ph >= FRACT_NUM(1.0/2))
-			data.ph = data.ph - FRACT_NUM(1.0/2)<<2;
+		DSPfract shifted = (data.LFO_frequency * data.inverseSampleRate);
+
+
+		data.ph = data.ph >> 1 + shifted; //Ovo sabiranjem izlazi iz opsega, sta onda da radim?
+
+		if (data.ph >= FRACT_NUM(0.5))
+		{
+			data.ph -= FRACT_NUM(0.5);
+		}
+
+		data.ph = data.ph<<1;
+		
+		
 
 		out++;
 		in++;
@@ -123,32 +134,28 @@ DSPfract lfo()
 	case kWaveformTriangle:
 		if (data.ph < FRACT_NUM(0.25f))
 		{
-			g_lfo_scale = 4;
-			return FRACT_NUM(0.5f) + FRACT_NUM(2.0f/4) * data.ph; //da li data ph menja fz
+			return FRACT_NUM(0.5f) + (FRACT_NUM(2.0f/2) * data.ph)*2; //da li data ph menja fz
 		}
 		else if (data.ph <  FRACT_NUM(0.75f))
 		{
-			g_lfo_scale = 8;
-			return FRACT_NUM(1.0f/2) - FRACT_NUM(2.0f/4) * (data.ph - FRACT_NUM(0.25f)*(long)2/*ovde kad se mnozi ovaj nema skaliranje ovaj drugi ima*/); /*!!!!!!!DODAO SAM *2*/
+			return FRACT_NUM(1.0f) - (FRACT_NUM(2.0f/2) * (data.ph - FRACT_NUM(0.25f)))*2; /*!!!!!!!DODAO SAM *2*/
 		}
 		else
 		{
-			g_lfo_scale = 2;
-			return FRACT_NUM(2.0f/2) * (data.ph - FRACT_NUM(0.75f));
+			return (FRACT_NUM(2.0f/2) * (data.ph - FRACT_NUM(0.75f)))<<1;
 		}
 
 	case kWaveformSquare:
 		if (data.ph <  FRACT_NUM(0.5f))
 		{
-			g_lfo_scale = 2;
-			return FRACT_NUM(1.0f/2);
+
+			return FRACT_NUM(1.0f);
 		}
 		else
 		{
 			return FRACT_NUM(0.0f);
 		}
 	default:
-		g_lfo_scale = 2;
-		return FRACT_NUM(1.0/2);
+		return FRACT_NUM(1.0);
 	}
 }

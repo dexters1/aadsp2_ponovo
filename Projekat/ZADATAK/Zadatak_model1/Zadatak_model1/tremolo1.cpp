@@ -100,6 +100,8 @@ void processBlock(double* input, double* output) {
 		data.ph += data.LFO_frequency * data.inverseSampleRate;
 		if (data.ph >= 1.0)
 			data.ph -= 1.0;
+			
+		
 
 		out++;
 		in++;
