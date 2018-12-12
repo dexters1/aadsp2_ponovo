@@ -1,20 +1,3 @@
-﻿Build started 5.12.2018 18:39:08.
-     1>Project "D:\Ra152-2015\aadsp2\Projekat\ZADATAK\Zadatak_model0\Zadatak_model0\Zadatak_model0.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Debug\Zadatak_model0.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         All outputs are up-to-date.
-       ManifestResourceCompile:
-         All outputs are up-to-date.
-       Link:
-         All outputs are up-to-date.
-       Manifest:
-         All outputs are up-to-date.
-       FinalizeBuildStatus:
-         Deleting file "Debug\Zadatak_model0.unsuccessfulbuild".
-         Touching "Debug\Zadatak_model0.lastbuildstate".
-     1>Done Building Project "D:\Ra152-2015\aadsp2\Projekat\ZADATAK\Zadatak_model0\Zadatak_model0\Zadatak_model0.vcxproj" (build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.04
+﻿  tremolo1.cpp
+c:\users\dexter\desktop\coding\aadsp2\aadsp2\projekat\zadatak\zadatak_model0\zadatak_model0\tremolo1.cpp(71): warning C4305: '=': truncation from 'double' to 'float'
+  Zadatak_model0.vcxproj -> C:\Users\Dexter\Desktop\Coding\aadsp2\aadsp2\Projekat\ZADATAK\Zadatak_model0\Debug\Zadatak_model0.exe

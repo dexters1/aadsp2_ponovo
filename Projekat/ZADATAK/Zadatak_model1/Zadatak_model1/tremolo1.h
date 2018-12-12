@@ -28,9 +28,10 @@ typedef struct {
 	float ph;
 } tremolo_struct_t;
 
-extern float lfo();
-extern void init();
-extern void processBlock(double* input, double* output);
+float lfo(float phase, wave_forms_t waveform);
+extern void init(tremolo_struct_t * data);
+extern void processBlock(double* input, double* output, tremolo_struct_t* data, int numSamples);
+
 
 
 

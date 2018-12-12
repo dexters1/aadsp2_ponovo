@@ -24,6 +24,7 @@ typedef struct
 } ProcessingState;
 
 ProcessingState processingState;
+tremolo_struct_t tremoloS;
 
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -40,7 +41,7 @@ void gainConverter()
 
 void processing_init()
 {
-	init(); //init za tremolo
+	init(&tremoloS); //init za tremolo
 	gainConverter(); //iz db u linearno
 
 	return;
@@ -86,8 +87,8 @@ void processing(double pInbuf[MAX_NUM_CHANNEL][BLOCK_SIZE], double pOutbuf[MAX_N
 	
 	if (processingState.mode - 1 == 0) //ako mode 1 prolaze oni koji treba jos i kroz tremolo
 	{
-		processBlock(pInbuf[0], pOutbuf[0]); //Je l' treba Tremolo1 funkcije da editujem? Da izbacim promenljive iz poziva funkcija?
-		processBlock(pInbuf[1], pOutbuf[1]);
+		processBlock(pInbuf[0], pOutbuf[0], &tremoloS, BLOCK_SIZE); //Je l' treba Tremolo1 funkcije da editujem? Da izbacim promenljive iz poziva funkcija?
+		processBlock(pInbuf[1], pOutbuf[1], &tremoloS, BLOCK_SIZE);
 	}
 
 }

@@ -83,7 +83,7 @@ void processBlock(double* input, double* output, tremolo_struct_t* data, int num
 
 	for (int i = 0; i < numSamples; ++i)
 	{
-		const float in = input[i];
+		const double in = input[i];
 
 		// Ring modulation is easy! Just multiply the waveform by a periodic carrier
 		output[i] = in * (1.0f - data->depth * lfo(ph, data->waveform));
