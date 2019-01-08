@@ -1,3 +1,5 @@
-﻿  tremolo1.cpp
-c:\users\dexter\desktop\coding\aadsp2\aadsp2\projekat\zadatak\zadatak_model1\zadatak_model1\tremolo1.cpp(71): warning C4305: '=': truncation from 'double' to 'float'
-  Zadatak_model1.vcxproj -> C:\Users\Dexter\Desktop\Coding\aadsp2\aadsp2\Projekat\ZADATAK\Zadatak_model1\Debug\Zadatak_model1.exe
+﻿  compressor.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  Zadatak_model1.vcxproj -> C:\Users\Dexter\Desktop\Coding\aadsp2_ponovo\aadsp2\Projekat\ZADATAK\Zadatak_model1\Debug\Zadatak_model1.exe

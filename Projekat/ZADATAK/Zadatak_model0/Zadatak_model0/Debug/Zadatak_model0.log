@@ -1,3 +1,7 @@
-﻿  tremolo1.cpp
-c:\users\dexter\desktop\coding\aadsp2\aadsp2\projekat\zadatak\zadatak_model0\zadatak_model0\tremolo1.cpp(71): warning C4305: '=': truncation from 'double' to 'float'
-  Zadatak_model0.vcxproj -> C:\Users\Dexter\Desktop\Coding\aadsp2\aadsp2\Projekat\ZADATAK\Zadatak_model0\Debug\Zadatak_model0.exe
+﻿  main.cpp
+c:\users\dexter\desktop\coding\aadsp2_ponovo\aadsp2\projekat\zadatak\zadatak_model0\zadatak_model0\main.cpp(367): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\dexter\desktop\coding\aadsp2_ponovo\aadsp2\projekat\zadatak\zadatak_model0\zadatak_model0\main.cpp(239): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\dexter\desktop\coding\aadsp2_ponovo\aadsp2\projekat\zadatak\zadatak_model0\zadatak_model0\main.cpp(241): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+  Zadatak_model0.vcxproj -> C:\Users\Dexter\Desktop\Coding\aadsp2_ponovo\aadsp2\Projekat\ZADATAK\Zadatak_model0\Debug\Zadatak_model0.exe

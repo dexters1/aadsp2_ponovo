@@ -25,13 +25,13 @@ for %%f in (TestStreams\*.*) do (
 	
 	: Execute Model 0, Model 1 and Model 2
 	echo     model 0
-	"Zadatak_model0\%CONFIGURATION%\%PROJECT_NAME1%.exe" "%%f" "Output//%%~nf_model0.wav" 1 -3 1
+	"Zadatak_model0\%CONFIGURATION%\%PROJECT_NAME1%.exe" "%%f" "Output//%%~nf_model0.wav" 1 -6 -3 3_2_0
 
 	echo     model 1
-	"Zadatak_model1\%CONFIGURATION%\%PROJECT_NAME2%.exe" "%%f" "Output//%%~nf_model1.wav" 1 -3 1
+	"Zadatak_model1\%CONFIGURATION%\%PROJECT_NAME2%.exe" "%%f" "Output//%%~nf_model1.wav" 1 -6 -3 3_2_0
 	
 	echo     model 2
-	"Zadatak_model2\%CONFIGURATION%\%PROJECT_NAME3%.exe" "%%f" "Output//%%~nf_model2.wav" 1 -3 1
+	"Zadatak_model2\%CONFIGURATION%\%PROJECT_NAME3%.exe" "%%f" "Output//%%~nf_model2.wav" 1 -6 -3 3_2_0
 
 	: Generate new logs
 	%COMPARE% Output//%%~nf_model0.wav Output//%%~nf_model1.wav %COMPARE_ARGS% 2> OutCmp//%%~nf_Model0_vs_Model1.txt

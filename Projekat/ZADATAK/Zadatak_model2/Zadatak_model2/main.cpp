@@ -5,11 +5,12 @@
 #include "stdfix_emu.h"
 #include "fixed_point_math.h"
 #include "common.h"
-#include "tremolo1.h"
+#include "compressor.h"
 #include "processing.h"
 
 DSPfract sampleBuffer[MAX_NUM_CHANNEL][BLOCK_SIZE];
 DSPint input_gain;
+DSPint headroom_gain;
 ProcessingState processingState;
 
 DSPint main(DSPint argc, char* argv[])
@@ -42,7 +43,7 @@ DSPint main(DSPint argc, char* argv[])
 	//-------------------------------------------------	
 	outputWAVhdr = inputWAVhdr;
 	//outputWAVhdr.fmt.NumChannels = inputWAVhdr.fmt.NumChannels; // change number of channels
-	outputWAVhdr.fmt.NumChannels = 4; //4 jer trazi L R LS i RS buffer
+	outputWAVhdr.fmt.NumChannels = 5; //4 jer trazi L R LS i RS buffer
 
 	DSPint oneChannelSubChunk2Size = inputWAVhdr.data.SubChunk2Size/inputWAVhdr.fmt.NumChannels;
 	DSPint oneChannelByteRate = inputWAVhdr.fmt.ByteRate/inputWAVhdr.fmt.NumChannels;
@@ -60,7 +61,7 @@ DSPint main(DSPint argc, char* argv[])
 	// Initialize process
 
 
-	DSPint ret = processing_init(argv[3], argv[4], argv[5], argc);
+	DSPint ret = processing_init(argv[3], argv[4], argv[5], argv[6], argc);
 	if (ret != SUCCESS)
 		return -1;
 
