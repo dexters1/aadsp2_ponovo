@@ -1,0 +1,237 @@
+1     	 0000					.public _compressor
+2     	 0000					.public _audio_compressor_init
+3     	 0000					.public _gst_audio_dynamic_transform_compressor
+4     							.xdata_ovly
+4      >> start of macro: .xdata_ovly
+1+    									seg_single , "X_OVLY", X
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_X_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "X_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_X_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .xdata_ovly
+5     	 0000				__extractedConst_0_2
+6     	 0000					.dw  (0x7fffffff)
+	 0000	 7FFFFFFF	 
+7     							.xdata_ovly
+7      >> start of macro: .xdata_ovly
+1+    									seg_single , "X_OVLY", X
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_X_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "X_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_X_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .xdata_ovly
+8     	 0000				_compressor
+9     	 0000					.bss (0x2)
+10    							.code_ovly
+10     >> start of macro: .code_ovly
+1+    									seg_single , "CODE_OVLY", CODE
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_CODE_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "CODE_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_CODE_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .code_ovly
+11    						
+12    						
+13    						
+14    	 0000				_audio_compressor_init:			/* LN: 15 | CYCLE: 0 | RULES: () */ 
+15    	 0000	 BB540007		xmem[i7] = i7			# LN: 15 | 
+16    	 0001	 020F7FFF		i7 += 1			# LN: 15 | 
+17    	 0002				cline_15_0:			/* LN: 16 | CYCLE: 0 | RULES: () */ 
+18    	 0002	 88040000		a0 = xmem[__extractedConst_0_2 + 0]			# LN: 16 | 
+19    	 0003	 98440001		xmem[_compressor + 1] = a0h			# LN: 16 | 
+20    	 0004				cline_16_0:			/* LN: 17 | CYCLE: 0 | RULES: () */ 
+21    	 0004	 00004DC0		a0 = 0			# LN: 17 | 
+22    	 0005	 98440000		xmem[_compressor + 0] = a0h			# LN: 17 | 
+23    	 0006				cline_17_0:			/* LN: 18 | CYCLE: 0 | RULES: () */ 
+24    	 0006	 80080007		jmp (__epilogue_104)			# LN: 18 | 
+25    	 0007				__epilogue_104:			/* LN: 18 | CYCLE: 0 | RULES: () */ 
+26    	 0007	 02177FFF		i7 -= 1			# LN: 18 | 
+27    	 0008	 81880000		ret			# LN: 18 | 
+28    						
+29    						
+30    						
+31    	 0009				_gst_audio_dynamic_transform_compressor:			/* LN: 20 | CYCLE: 0 | RULES: () */ 
+32    	 0009	 BB540007		xmem[i7] = i7			# LN: 20 | 
+33    	 000A	 020F7FFF		i7 += 1			# LN: 20 | 
+34    	 000B	 87750004		i7 = i7 + (0x4)			# LN: 20 | 
+35    	 000C	 91750001		i1 = i7 - (0x1)			# LN: 20 | 
+36    	 000D	 B0540001		xmem[i1] = i0			# LN: 20 | 
+37    	 000E				cline_20_0:			/* LN: 21 | CYCLE: 0 | RULES: () */ 
+38    	 000E	 88040000		a0 = xmem[_compressor + 0]			# LN: 21 | 
+39    	 000F	 90750002		i0 = i7 - (0x2)			# LN: 21 | 
+40    	 0010	 98540000		xmem[i0] = a0h			# LN: 21 | 
+41    	 0011				cline_21_0:			/* LN: 25 | CYCLE: 0 | RULES: () */ 
+42    	 0011	 88040001		a0 = xmem[_compressor + 1]			# LN: 25 | 
+43    	 0012	 89040000		a1 = xmem[__extractedConst_0_2 + 0]			# LN: 25 | 
+44    	 0013	 00004F08		a0 - a1			# LN: 25 | 
+45    	 0014	 84480016		if (a != 0) jmp (else_0)			# LN: 25 | 
+46    	 0015				cline_25_0:			/* LN: 26 | CYCLE: 0 | RULES: () */ 
+47    	 0015	 80080059		jmp (__epilogue_106)			# LN: 26 | 
+48    	 0016				cline_26_0:			/* LN: 28 | CYCLE: 0 | RULES: () */ 
+49    	 0016				endif_0:			/* LN: 25 | CYCLE: 0 | RULES: () */ 
+50    	 0016				else_0:			/* LN: 25 | CYCLE: 0 | RULES: () */ 
+51    	 0016	 90750003		i0 = i7 - (0x3)			# LN: 28 | 
+52    	 0017	 00004DC0		a0 = 0			# LN: 28 | 
+53    	 0018	 98540000		xmem[i0] = a0h			# LN: 28 | 
+54    	 0019	 81000057		do (0x10), label_end_92			# LN: 28 | 
+55    	 001A				cline_28_0:			/* LN: 29 | CYCLE: 0 | RULES: () */ 
+56    	 001A				label_begin_92:			/* LN: 28 | CYCLE: 0 | RULES: () */ 
+57    	 001A	 90750003		i0 = i7 - (0x3)			# LN: 29 | 
+58    	 001B	 88140000		a0 = xmem[i0]			# LN: 29 | 
+59    	 001C	 90750001		i0 = i7 - (0x1)			# LN: 29 | 
+60    	 001D	 89140000		a1 = xmem[i0]			# LN: 29 | 
+61    	 001E	 00004480		a0 = a1 + a0			# LN: 29 | 
+62    	 001F	 98090030		AnyReg(i0, a0h)			# LN: 29 | 
+63    	 0020	 91750004		i1 = i7 - (0x4)			# LN: 29 | 
+64    	 0021	 88140000		a0 = xmem[i0]			# LN: 29 | 
+65    	 0022	 98540001		xmem[i1] = a0h			# LN: 29 | 
+66    	 0023				cline_29_0:			/* LN: 31 | CYCLE: 0 | RULES: () */ 
+67    	 0023	 90750004		i0 = i7 - (0x4)			# LN: 31 | 
+68    	 0024	 88140000		a0 = xmem[i0]			# LN: 31 | 
+69    	 0025	 90750002		i0 = i7 - (0x2)			# LN: 31 | 
+70    	 0026	 89140000		a1 = xmem[i0]			# LN: 31 | 
+71    	 0027	 00004F08		a0 - a1			# LN: 31 | 
+72    	 0028	 85080035		if (a <= 0) jmp (else_1)			# LN: 31 | 
+73    	 0029				cline_31_0:			/* LN: 32 | CYCLE: 0 | RULES: () */ 
+74    	 0029	 90750004		i0 = i7 - (0x4)			# LN: 32 | 
+75    	 002A	 88140000		a0 = xmem[i0]			# LN: 32 | 
+76    	 002B	 90750002		i0 = i7 - (0x2)			# LN: 32 | 
+77    	 002C	 89140000		a1 = xmem[i0]			# LN: 32 | 
+78    	 002D	 80040001		x0 = xmem[_compressor + 1]			# LN: 32 | 
+79    	 002E	 90750002		i0 = i7 - (0x2)			# LN: 32 | 
+80    	 002F	 19404448		a1 = xmem[i0]; a0 = a0 - a1			# LN: 32, 32 | 
+81    	 0030	 01584C08		x1 = a0h; a0 =+ a1			# LN: 32, 32 | 
+82    	 0031	 00002028		a0 += x1 * x0			# LN: 32 | 
+83    	 0032	 90750004		i0 = i7 - (0x4)			# LN: 32 | 
+84    	 0033	 88540000		xmem[i0] = a0			# LN: 32 | 
+85    	 0034	 80080049		jmp (endif_1)			# LN: 32 | 
+86    	 0035				cline_32_0:			/* LN: 34 | CYCLE: 0 | RULES: () */ 
+87    	 0035				else_1:			/* LN: 31 | CYCLE: 0 | RULES: () */ 
+88    	 0035	 90750002		i0 = i7 - (0x2)			# LN: 34 | 
+89    	 0036	 88140000		a0 = xmem[i0]			# LN: 34 | 
+90    	 0037	 00004C80		a0 =- a0			# LN: 34 | 
+91    	 0038	 90750004		i0 = i7 - (0x4)			# LN: 34 | 
+92    	 0039	 89140000		a1 = xmem[i0]			# LN: 34 | 
+93    	 003A	 00004F01		a1 - a0			# LN: 34 | 
+94    	 003B	 84C80049		if (a >= 0) jmp (else_2)			# LN: 34 | 
+95    	 003C				cline_34_0:			/* LN: 35 | CYCLE: 0 | RULES: () */ 
+96    	 003C	 90750002		i0 = i7 - (0x2)			# LN: 35 | 
+97    	 003D	 88140000		a0 = xmem[i0]			# LN: 35 | 
+98    	 003E	 90750004		i0 = i7 - (0x4)			# LN: 35 | 
+99    	 003F	 19404C80		a1 = xmem[i0]; a0 =- a0			# LN: 35, 35 | 
+100   	 0040	 90750002		i0 = i7 - (0x2)			# LN: 35 | 
+101   	 0041	 8C140000		b0 = xmem[i0]			# LN: 35 | 
+102   	 0042	 000044A1		a1 = a1 + b0			# LN: 35 | 
+103   	 0043	 80040001		x0 = xmem[_compressor + 1]			# LN: 35 | 
+104   	 0044	 01597FFF		x1 = a1h			# LN: 35 | 
+105   	 0045	 00002028		a0 += x1 * x0			# LN: 35 | 
+106   	 0046	 90750004		i0 = i7 - (0x4)			# LN: 35 | 
+107   	 0047	 88540000		xmem[i0] = a0			# LN: 35 | 
+108   	 0048	 80080049		jmp (endif_2)			# LN: 35 | 
+109   	 0049				cline_35_0:			/* LN: 37 | CYCLE: 0 | RULES: () */ 
+110   	 0049				endif_1:			/* LN: 31 | CYCLE: 0 | RULES: () */ 
+111   	 0049				endif_2:			/* LN: 34 | CYCLE: 0 | RULES: () */ 
+112   	 0049				else_2:			/* LN: 34 | CYCLE: 0 | RULES: () */ 
+113   	 0049	 90750003		i0 = i7 - (0x3)			# LN: 37 | 
+114   	 004A	 88140000		a0 = xmem[i0]			# LN: 37 | 
+115   	 004B	 90750001		i0 = i7 - (0x1)			# LN: 37 | 
+116   	 004C	 89140000		a1 = xmem[i0]			# LN: 37 | 
+117   	 004D	 00004480		a0 = a1 + a0			# LN: 37 | 
+118   	 004E	 98090030		AnyReg(i0, a0h)			# LN: 37 | 
+119   	 004F	 91750004		i1 = i7 - (0x4)			# LN: 37 | 
+120   	 0050	 88140001		a0 = xmem[i1]			# LN: 37 | 
+121   	 0051	 98540000		xmem[i0] = a0h			# LN: 37 | 
+122   	 0052				cline_37_0:			/* LN: 28 | CYCLE: 0 | RULES: () */ 
+123   	 0052				init_latch_label_0:			/* LN: 38 | CYCLE: 0 | RULES: () */ 
+124   	 0052	 90750003		i0 = i7 - (0x3)			# LN: 28 | 
+125   	 0053	 88140000		a0 = xmem[i0]			# LN: 28 | 
+126   	 0054	 894A0001		uhalfword(a1) = (0x1)			# LN: 28 | 
+127   	 0055	 00004408		a0 = a0 + a1			# LN: 28 | 
+128   	 0056	 90750003		i0 = i7 - (0x3)			# LN: 28 | 
+129   	 0057				label_end_92:			# LN: 28 | CYCLE: 5 | RULES: ()
+130   	 0057	 98540000		xmem[i0] = a0h			# LN: 28 | 
+131   	 0058				cline_28_1:			/* LN: 40 | CYCLE: 0 | RULES: () */ 
+132   	 0058				for_end_0:			/* LN: 28 | CYCLE: 0 | RULES: () */ 
+133   	 0058	 80080059		jmp (__epilogue_106)			# LN: 40 | 
+134   	 0059				__epilogue_106:			/* LN: 40 | CYCLE: 0 | RULES: () */ 
+135   	 0059	 97750004		i7 = i7 - (0x4)			# LN: 40 | 
+136   	 005A	 02177FFF		i7 -= 1			# LN: 40 | 
+137   	 005B	 81880000		ret			# LN: 40 | 
+138   						(null)
+				 SYMBOL TABLE 
+
+    Name                                                                                    Type                  Value 
+
+_COMMON_INC_PATH_                                                               					 Define                 "C:/CirrusDSP/crystal32/common/inc/"
+_DSP_                                                                           					 Define                 "a"
+_LOCAL_INC_PATH_                                                                					 Define                 "inc/"
+_LOCAL_SRC_PATH_                                                                					 Define                 "src/"
+_MUI_VERSION_                                                                   					 Define                 "020000"
+_OVLY_                                                                          					 Define                 "standalone"
+_OVLY_REVISION_                                                                 					 Define                 "020000"
+_ROUTER_INC_PATH_                                                               					 Define                 "rom_inc/"
+_SLOT_                                                                          					 Define                 "0"
+_TARGET_FAMILY_                                                                 					 Define                 "crystal32"
+_TOOLS_VERSION_                                                                 					 Define                 "0x0701"
+_VERSION_                                                                       					 Define                 "00"
+__CASM_VER__                                                                    			  Unused Variable		        0 (701H)
+__epilogue_104                                                                  			         Relocatable         compressor_GEN_0002:0007H
+__epilogue_106                                                                  			         Relocatable         compressor_GEN_0002:0059H
+__extractedConst_0_2                                                            			         Relocatable         compressor_GEN_0000:0000H
+_audio_compressor_init                                                          			  Public Relocatable       compressor_GEN_0002:0000H
+_compressor                                                                     			  Public Relocatable       compressor_GEN_0001:0000H
+_gst_audio_dynamic_transform_compressor                                         			  Public Relocatable       compressor_GEN_0002:0009H
+cline_15_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0002H
+cline_16_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0004H
+cline_17_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0006H
+cline_20_0                                                                      			  Unused Relocatable        compressor_GEN_0002:000EH
+cline_21_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0011H
+cline_25_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0015H
+cline_26_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0016H
+cline_28_0                                                                      			  Unused Relocatable        compressor_GEN_0002:001AH
+cline_28_1                                                                      			  Unused Relocatable        compressor_GEN_0002:0058H
+cline_29_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0023H
+cline_31_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0029H
+cline_32_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0035H
+cline_34_0                                                                      			  Unused Relocatable        compressor_GEN_0002:003CH
+cline_35_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0049H
+cline_37_0                                                                      			  Unused Relocatable        compressor_GEN_0002:0052H
+else_0                                                                          			         Relocatable         compressor_GEN_0002:0016H
+else_1                                                                          			         Relocatable         compressor_GEN_0002:0035H
+else_2                                                                          			         Relocatable         compressor_GEN_0002:0049H
+endif_0                                                                         			  Unused Relocatable        compressor_GEN_0002:0016H
+endif_1                                                                         			         Relocatable         compressor_GEN_0002:0049H
+endif_2                                                                         			         Relocatable         compressor_GEN_0002:0049H
+for_end_0                                                                       			  Unused Relocatable        compressor_GEN_0002:0058H
+init_latch_label_0                                                              			  Unused Relocatable        compressor_GEN_0002:0052H
+label_begin_92                                                                  			  Unused Relocatable        compressor_GEN_0002:001AH
+label_end_92                                                                    			         Relocatable         compressor_GEN_0002:0057H
+
+	       SEGMENTS:
+
+Size			  Name										 Class
+0000H	 __INIT                                  			 CODE                                    
+0001H	 compressor_GEN_0000                     			 X_OVLY                                  
+0002H	 compressor_GEN_0001                     			 X_OVLY                                  
+005CH	 compressor_GEN_0002                     			 CODE_OVLY                               

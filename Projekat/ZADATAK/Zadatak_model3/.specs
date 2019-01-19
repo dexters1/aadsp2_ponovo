@@ -101,7 +101,13 @@
                 <outputFolder>output</outputFolder>
             </objectFile>
             <objectFile isExported="false" isAdditional="false">
-                <objectFilePath>src/tremolo1.O</objectFilePath>
+                <objectFilePath>src/compressor.O</objectFilePath>
+                <containingProject>Zadatak_model3</containingProject>
+                <isExcluded>false</isExcluded>
+                <outputFolder>output</outputFolder>
+            </objectFile>
+            <objectFile isExported="false" isAdditional="false">
+                <objectFilePath>.metadata/.plugins/org.eclipse.cdt.make.core/specs.O</objectFilePath>
                 <containingProject>Zadatak_model3</containingProject>
                 <isExcluded>false</isExcluded>
                 <outputFolder>output</outputFolder>

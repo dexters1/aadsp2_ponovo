@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<settings built="true" last_build_time="1544029969295">
+<settings built="true" last_build_time="1547935797984">
 	<dependencies>
-		<source_file last_build_time="1544029967569" path="src/processing.cpp">
-			<dependency>../inc/tremolo1.h</dependency>
+		<source_file last_build_time="1547933042944" path="src/processing.cpp">
+			<dependency>../inc/compressor.h</dependency>
 			<dependency>../inc/common.h</dependency>
 			<dependency>../inc/stdfix_emu.h</dependency>
-			<dependency>C:/CirrusDSP/include/stdfix.h</dependency>
-			<dependency>C:/CirrusDSP/include/scaling_coeff.h</dependency>
+			<dependency>../../../../../../../../../../CirrusDSP/include/stdfix.h</dependency>
+			<dependency>../../../../../../../../../../CirrusDSP/include/scaling_coeff.h</dependency>
 			<dependency>../inc/processing.h</dependency>
-			<dependency>C:/CirrusDSP/include/stdio.h</dependency>
-			<dependency>C:/CirrusDSP/include/dsplib/wavefile.h</dependency>
-			<dependency>C:/CirrusDSP/include/string.h</dependency>
 		</source_file>
-		<source_file last_build_time="1544029411523" path="src/main.cpp">
-			<dependency>C:/CirrusDSP/include/stdio.h</dependency>
-			<dependency>C:/CirrusDSP/include/dsplib/wavefile.h</dependency>
-			<dependency>C:/CirrusDSP/include/stdfix.h</dependency>
-			<dependency>C:/CirrusDSP/include/scaling_coeff.h</dependency>
-			<dependency>C:/CirrusDSP/include/string.h</dependency>
+		<source_file last_build_time="1547935795284" path="src/main.cpp">
+			<dependency>../../../../../../../../../../CirrusDSP/include/stdio.h</dependency>
+			<dependency>../../../../../../../../../../CirrusDSP/include/dsplib/wavefile.h</dependency>
+			<dependency>../../../../../../../../../../CirrusDSP/include/stdfix.h</dependency>
+			<dependency>../../../../../../../../../../CirrusDSP/include/scaling_coeff.h</dependency>
+			<dependency>../../../../../../../../../../CirrusDSP/include/string.h</dependency>
 			<dependency>../inc/common.h</dependency>
 			<dependency>../inc/stdfix_emu.h</dependency>
-			<dependency>../inc/tremolo1.h</dependency>
+			<dependency>../inc/compressor.h</dependency>
 			<dependency>../inc/processing.h</dependency>
 		</source_file>
-		<source_file last_build_time="1544029967110" path="src/tremolo1.cpp">
+		<source_file last_build_time="1547933045236" path=".metadata/.plugins/org.eclipse.cdt.make.core/specs.cpp"/>
+		<source_file last_build_time="0" path="src/tremolo1.cpp">
 			<dependency>C:/CirrusDSP/include/math.h</dependency>
 			<dependency>../inc/tremolo1.h</dependency>
 			<dependency>../inc/common.h</dependency>
 			<dependency>../inc/stdfix_emu.h</dependency>
 			<dependency>C:/CirrusDSP/include/stdfix.h</dependency>
 			<dependency>C:/CirrusDSP/include/scaling_coeff.h</dependency>
+		</source_file>
+		<source_file last_build_time="1547933045236" path=".metadata/.plugins/org.eclipse.cdt.make.core/specs.c"/>
+		<source_file last_build_time="1547933044588" path="src/compressor.cpp">
+			<dependency>../inc/compressor.h</dependency>
+			<dependency>../inc/common.h</dependency>
+			<dependency>../inc/stdfix_emu.h</dependency>
+			<dependency>../../../../../../../../../../CirrusDSP/include/stdfix.h</dependency>
+			<dependency>../../../../../../../../../../CirrusDSP/include/scaling_coeff.h</dependency>
 		</source_file>
 	</dependencies>
 </settings>
