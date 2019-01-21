@@ -16,16 +16,16 @@
 	.public _processing_sum
 	.xdata_ovly
 __extractedConst_0_1
-	.dw  (0x4026e73e)
-	.xdata_ovly
-__extractedConst_1_1
 	.dw  (0x65ac8c30)
 	.xdata_ovly
-__extractedConst_2_5
+__extractedConst_1_5
 	.dw  (0x4026e73d)
 	.xdata_ovly
-__extractedConst_3_5
+__extractedConst_2_5
 	.dw  (0x5a9df7ac)
+	.xdata_ovly
+__extractedConst_3_1
+	.dw  (0x4026e73e)
 	.code_ovly
 
 
@@ -300,15 +300,15 @@ cline_192_0:			/* LN: 195 | CYCLE: 0 | RULES: () */
 	i0 = i7 - (0x5)			# LN: 195 | 
 	a0 = 0			# LN: 195 | 
 	xmem[i0] = a0h			# LN: 195 | 
-	do (0x10), label_end_92			# LN: 195 | 
+	do (0x10), label_end_96			# LN: 195 | 
 cline_195_0:			/* LN: 198 | CYCLE: 0 | RULES: () */ 
-label_begin_92:			/* LN: 195 | CYCLE: 0 | RULES: () */ 
+label_begin_96:			/* LN: 195 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 198 | 
 	i0 = xmem[i0]			# LN: 198 | 
 	i1 = i7 - (0x4)			# LN: 198 | 
 	i1 = xmem[i1]			# LN: 198 | 
-	a0 = xmem[i0]			# LN: 198 | 
-	xmem[i1] = a0h			# LN: 198 | 
+	a0 = ymem[i0]			# LN: 198 | 
+	ymem[i1] = a0h			# LN: 198 | 
 cline_198_0:			/* LN: 199 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 199 | 
 	i0 = xmem[i0]			# LN: 199 | 
@@ -328,7 +328,7 @@ init_latch_label_5:			/* LN: 201 | CYCLE: 0 | RULES: () */
 	uhalfword(a1) = (0x1)			# LN: 195 | 
 	a0 = a0 + a1			# LN: 195 | 
 	i0 = i7 - (0x5)			# LN: 195 | 
-label_end_92:			# LN: 195 | CYCLE: 5 | RULES: ()
+label_end_96:			# LN: 195 | CYCLE: 5 | RULES: ()
 	xmem[i0] = a0h			# LN: 195 | 
 cline_195_1:			/* LN: 202 | CYCLE: 0 | RULES: () */ 
 for_end_5:			/* LN: 195 | CYCLE: 0 | RULES: () */ 
@@ -355,13 +355,13 @@ cline_206_0:			/* LN: 209 | CYCLE: 0 | RULES: () */
 	i0 = i7 - (0x3)			# LN: 209 | 
 	a0 = 0			# LN: 209 | 
 	xmem[i0] = a0h			# LN: 209 | 
-	do (0x10), label_end_93			# LN: 209 | 
+	do (0x10), label_end_94			# LN: 209 | 
 cline_209_0:			/* LN: 212 | CYCLE: 0 | RULES: () */ 
-label_begin_93:			/* LN: 209 | CYCLE: 0 | RULES: () */ 
+label_begin_94:			/* LN: 209 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x2)			# LN: 212 | 
 	i0 = xmem[i0]			# LN: 212 | 
 	a0 = 0			# LN: 212 | 
-	xmem[i0] = a0h			# LN: 212 | 
+	ymem[i0] = a0h			# LN: 212 | 
 cline_212_0:			/* LN: 213 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x2)			# LN: 213 | 
 	i0 = xmem[i0]			# LN: 213 | 
@@ -375,7 +375,7 @@ init_latch_label_6:			/* LN: 214 | CYCLE: 0 | RULES: () */
 	uhalfword(a1) = (0x1)			# LN: 209 | 
 	a0 = a0 + a1			# LN: 209 | 
 	i0 = i7 - (0x3)			# LN: 209 | 
-label_end_93:			# LN: 209 | CYCLE: 5 | RULES: ()
+label_end_94:			# LN: 209 | CYCLE: 5 | RULES: ()
 	xmem[i0] = a0h			# LN: 209 | 
 cline_209_1:			/* LN: 215 | CYCLE: 0 | RULES: () */ 
 for_end_6:			/* LN: 209 | CYCLE: 0 | RULES: () */ 
@@ -409,17 +409,17 @@ cline_144_0:			/* LN: 147 | CYCLE: 0 | RULES: () */
 	i0 = i7 - (0x5)			# LN: 147 | 
 	a0 = 0			# LN: 147 | 
 	xmem[i0] = a0h			# LN: 147 | 
-	do (0x10), label_end_97			# LN: 147 | 
+	do (0x10), label_end_92			# LN: 147 | 
 cline_147_0:			/* LN: 150 | CYCLE: 0 | RULES: () */ 
-label_begin_97:			/* LN: 147 | CYCLE: 0 | RULES: () */ 
+label_begin_92:			/* LN: 147 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 150 | 
 	i0 = xmem[i0]			# LN: 150 | 
-	x0 = xmem[__extractedConst_1_1 + 0]			# LN: 150 | 
-	x1 = xmem[i0]			# LN: 150 | 
+	x0 = xmem[__extractedConst_0_1 + 0]			# LN: 150 | 
+	x1 = ymem[i0]			# LN: 150 | 
 	i0 = i7 - (0x4)			# LN: 150 | 
 	i0 = xmem[i0]			# LN: 150 | 
 	a0 = x1 * x0			# LN: 150 | 
-	xmem[i0] = a0			# LN: 150 | 
+	ymem[i0] = a0			# LN: 150 | 
 cline_150_0:			/* LN: 151 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 151 | 
 	i0 = xmem[i0]			# LN: 151 | 
@@ -439,7 +439,7 @@ init_latch_label_2:			/* LN: 153 | CYCLE: 0 | RULES: () */
 	uhalfword(a1) = (0x1)			# LN: 147 | 
 	a0 = a0 + a1			# LN: 147 | 
 	i0 = i7 - (0x5)			# LN: 147 | 
-label_end_97:			# LN: 147 | CYCLE: 5 | RULES: ()
+label_end_92:			# LN: 147 | CYCLE: 5 | RULES: ()
 	xmem[i0] = a0h			# LN: 147 | 
 cline_147_1:			/* LN: 154 | CYCLE: 0 | RULES: () */ 
 for_end_2:			/* LN: 147 | CYCLE: 0 | RULES: () */ 
@@ -473,17 +473,17 @@ cline_159_0:			/* LN: 162 | CYCLE: 0 | RULES: () */
 	i0 = i7 - (0x5)			# LN: 162 | 
 	a0 = 0			# LN: 162 | 
 	xmem[i0] = a0h			# LN: 162 | 
-	do (0x10), label_end_96			# LN: 162 | 
+	do (0x10), label_end_98			# LN: 162 | 
 cline_162_0:			/* LN: 165 | CYCLE: 0 | RULES: () */ 
-label_begin_96:			/* LN: 162 | CYCLE: 0 | RULES: () */ 
+label_begin_98:			/* LN: 162 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 165 | 
 	i0 = xmem[i0]			# LN: 165 | 
-	x0 = xmem[__extractedConst_0_1 + 0]			# LN: 165 | 
-	x1 = xmem[i0]			# LN: 165 | 
+	x0 = xmem[__extractedConst_3_1 + 0]			# LN: 165 | 
+	x1 = ymem[i0]			# LN: 165 | 
 	i0 = i7 - (0x4)			# LN: 165 | 
 	i0 = xmem[i0]			# LN: 165 | 
 	a0 = x1 * x0			# LN: 165 | 
-	xmem[i0] = a0			# LN: 165 | 
+	ymem[i0] = a0			# LN: 165 | 
 cline_165_0:			/* LN: 166 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 166 | 
 	i0 = xmem[i0]			# LN: 166 | 
@@ -503,7 +503,7 @@ init_latch_label_3:			/* LN: 168 | CYCLE: 0 | RULES: () */
 	uhalfword(a1) = (0x1)			# LN: 162 | 
 	a0 = a0 + a1			# LN: 162 | 
 	i0 = i7 - (0x5)			# LN: 162 | 
-label_end_96:			# LN: 162 | CYCLE: 5 | RULES: ()
+label_end_98:			# LN: 162 | CYCLE: 5 | RULES: ()
 	xmem[i0] = a0h			# LN: 162 | 
 cline_162_1:			/* LN: 169 | CYCLE: 0 | RULES: () */ 
 for_end_3:			/* LN: 162 | CYCLE: 0 | RULES: () */ 
@@ -543,11 +543,11 @@ label_begin_95:			/* LN: 132 | CYCLE: 0 | RULES: () */
 	i0 = i7 - (0x3)			# LN: 135 | 
 	i0 = xmem[i0]			# LN: 135 | 
 	x0 = xmem[_processingState + 1]			# LN: 135 | 
-	x1 = xmem[i0]			# LN: 135 | 
+	x1 = ymem[i0]			# LN: 135 | 
 	i0 = i7 - (0x4)			# LN: 135 | 
 	i0 = xmem[i0]			# LN: 135 | 
 	a0 = x1 * x0			# LN: 135 | 
-	xmem[i0] = a0			# LN: 135 | 
+	ymem[i0] = a0			# LN: 135 | 
 cline_135_0:			/* LN: 136 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 136 | 
 	i0 = xmem[i0]			# LN: 136 | 
@@ -632,10 +632,10 @@ cline_39_0:			/* LN: 41 | CYCLE: 0 | RULES: () */
 	a0 = a1 - a0			# LN: 41 | 
 	xmem[_processingState + 3] = a0h			# LN: 41 | 
 cline_41_0:			/* LN: 42 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 42 | 
+	a0 = xmem[__extractedConst_1_5 + 0]			# LN: 42 | 
 	xmem[_processingState + 0] = a0h			# LN: 42 | 
 cline_42_0:			/* LN: 43 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_3_5 + 0]			# LN: 43 | 
+	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 43 | 
 	xmem[_processingState + 1] = a0h			# LN: 43 | 
 cline_43_0:			/* LN: 44 | CYCLE: 0 | RULES: () */ 
 	a0 = 0			# LN: 44 | 
@@ -656,10 +656,10 @@ cline_48_0:			/* LN: 56 | CYCLE: 0 | RULES: () */
 	a0 = a1 - a0			# LN: 56 | 
 	xmem[_processingState + 3] = a0h			# LN: 56 | 
 cline_56_0:			/* LN: 57 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 57 | 
+	a0 = xmem[__extractedConst_1_5 + 0]			# LN: 57 | 
 	xmem[_processingState + 0] = a0h			# LN: 57 | 
 cline_57_0:			/* LN: 58 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_3_5 + 0]			# LN: 58 | 
+	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 58 | 
 	xmem[_processingState + 1] = a0h			# LN: 58 | 
 cline_58_0:			/* LN: 59 | CYCLE: 0 | RULES: () */ 
 	a0 = 0			# LN: 59 | 
@@ -680,10 +680,10 @@ cline_63_0:			/* LN: 69 | CYCLE: 0 | RULES: () */
 	a0 = a1 - a0			# LN: 69 | 
 	xmem[_processingState + 3] = a0h			# LN: 69 | 
 cline_69_0:			/* LN: 70 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 70 | 
+	a0 = xmem[__extractedConst_1_5 + 0]			# LN: 70 | 
 	xmem[_processingState + 0] = a0h			# LN: 70 | 
 cline_70_0:			/* LN: 71 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_3_5 + 0]			# LN: 71 | 
+	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 71 | 
 	xmem[_processingState + 1] = a0h			# LN: 71 | 
 cline_71_0:			/* LN: 72 | CYCLE: 0 | RULES: () */ 
 	a0 = 0			# LN: 72 | 
@@ -704,10 +704,10 @@ cline_76_0:			/* LN: 84 | CYCLE: 0 | RULES: () */
 	a0 = a1 - a0			# LN: 84 | 
 	xmem[_processingState + 3] = a0h			# LN: 84 | 
 cline_84_0:			/* LN: 85 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 85 | 
+	a0 = xmem[__extractedConst_1_5 + 0]			# LN: 85 | 
 	xmem[_processingState + 0] = a0h			# LN: 85 | 
 cline_85_0:			/* LN: 86 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_3_5 + 0]			# LN: 86 | 
+	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 86 | 
 	xmem[_processingState + 1] = a0h			# LN: 86 | 
 cline_86_0:			/* LN: 87 | CYCLE: 0 | RULES: () */ 
 	a0 = 0			# LN: 87 | 
@@ -722,10 +722,10 @@ else_5:			/* LN: 76 | CYCLE: 0 | RULES: () */
 	a0 = a1 - a0			# LN: 96 | 
 	xmem[_processingState + 3] = a0h			# LN: 96 | 
 cline_96_0:			/* LN: 97 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 97 | 
+	a0 = xmem[__extractedConst_1_5 + 0]			# LN: 97 | 
 	xmem[_processingState + 0] = a0h			# LN: 97 | 
 cline_97_0:			/* LN: 98 | CYCLE: 0 | RULES: () */ 
-	a0 = xmem[__extractedConst_3_5 + 0]			# LN: 98 | 
+	a0 = xmem[__extractedConst_2_5 + 0]			# LN: 98 | 
 	xmem[_processingState + 1] = a0h			# LN: 98 | 
 cline_98_0:			/* LN: 99 | CYCLE: 0 | RULES: () */ 
 	a0 = 0			# LN: 99 | 
@@ -770,17 +770,17 @@ cline_114_0:			/* LN: 117 | CYCLE: 0 | RULES: () */
 	i0 = i7 - (0x5)			# LN: 117 | 
 	a0 = 0			# LN: 117 | 
 	xmem[i0] = a0h			# LN: 117 | 
-	do (0x10), label_end_98			# LN: 117 | 
+	do (0x10), label_end_93			# LN: 117 | 
 cline_117_0:			/* LN: 120 | CYCLE: 0 | RULES: () */ 
-label_begin_98:			/* LN: 117 | CYCLE: 0 | RULES: () */ 
+label_begin_93:			/* LN: 117 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 120 | 
 	i0 = xmem[i0]			# LN: 120 | 
 	x0 = xmem[_processingState + 0]			# LN: 120 | 
-	x1 = xmem[i0]			# LN: 120 | 
+	x1 = ymem[i0]			# LN: 120 | 
 	i0 = i7 - (0x4)			# LN: 120 | 
 	i0 = xmem[i0]			# LN: 120 | 
 	a0 = x1 * x0			# LN: 120 | 
-	xmem[i0] = a0			# LN: 120 | 
+	ymem[i0] = a0			# LN: 120 | 
 cline_120_0:			/* LN: 121 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 121 | 
 	i0 = xmem[i0]			# LN: 121 | 
@@ -800,7 +800,7 @@ init_latch_label_0:			/* LN: 123 | CYCLE: 0 | RULES: () */
 	uhalfword(a1) = (0x1)			# LN: 117 | 
 	a0 = a0 + a1			# LN: 117 | 
 	i0 = i7 - (0x5)			# LN: 117 | 
-label_end_98:			# LN: 117 | CYCLE: 5 | RULES: ()
+label_end_93:			# LN: 117 | CYCLE: 5 | RULES: ()
 	xmem[i0] = a0h			# LN: 117 | 
 cline_117_1:			/* LN: 124 | CYCLE: 0 | RULES: () */ 
 for_end_0:			/* LN: 117 | CYCLE: 0 | RULES: () */ 
@@ -830,8 +830,9 @@ cline_172_0:			/* LN: 174 | CYCLE: 0 | RULES: () */
 cline_174_0:			/* LN: 175 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x2)			# LN: 175 | 
 	a0 = xmem[i0]			# LN: 175 | 
-	i0 = i7 - (0x5)			# LN: 175 | 
-	xmem[i0] = a0			# LN: 175 | 
+	AnyReg(i0, a0h)			# LN: 175 | 
+	i1 = i7 - (0x5)			# LN: 175 | 
+	xmem[i1] = i0			# LN: 175 | 
 cline_175_0:			/* LN: 176 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x3)			# LN: 176 | 
 	a0 = xmem[i0]			# LN: 176 | 
@@ -841,19 +842,19 @@ cline_176_0:			/* LN: 179 | CYCLE: 0 | RULES: () */
 	i0 = i7 - (0x7)			# LN: 179 | 
 	a0 = 0			# LN: 179 | 
 	xmem[i0] = a0h			# LN: 179 | 
-	do (0x10), label_end_94			# LN: 179 | 
+	do (0x10), label_end_97			# LN: 179 | 
 cline_179_0:			/* LN: 182 | CYCLE: 0 | RULES: () */ 
-label_begin_94:			/* LN: 179 | CYCLE: 0 | RULES: () */ 
+label_begin_97:			/* LN: 179 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x4)			# LN: 182 | 
 	i0 = xmem[i0]			# LN: 182 | 
 	i1 = i7 - (0x5)			# LN: 182 | 
 	i1 = xmem[i1]			# LN: 182 | 
-	a0 = xmem[i0]			# LN: 182 | 
-	a1 = xmem[i1]			# LN: 182 | 
+	a0 = ymem[i0]			# LN: 182 | 
+	a1 = ymem[i1]			# LN: 182 | 
 	i0 = i7 - (0x6)			# LN: 182 | 
 	i0 = xmem[i0]			# LN: 182 | 
 	a0 = a0 + a1			# LN: 182 | 
-	xmem[i0] = a0h			# LN: 182 | 
+	ymem[i0] = a0h			# LN: 182 | 
 cline_182_0:			/* LN: 183 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x4)			# LN: 183 | 
 	i0 = xmem[i0]			# LN: 183 | 
@@ -879,7 +880,7 @@ init_latch_label_4:			/* LN: 186 | CYCLE: 0 | RULES: () */
 	uhalfword(a1) = (0x1)			# LN: 179 | 
 	a0 = a0 + a1			# LN: 179 | 
 	i0 = i7 - (0x7)			# LN: 179 | 
-label_end_94:			# LN: 179 | CYCLE: 5 | RULES: ()
+label_end_97:			# LN: 179 | CYCLE: 5 | RULES: ()
 	xmem[i0] = a0h			# LN: 179 | 
 cline_179_1:			/* LN: 187 | CYCLE: 0 | RULES: () */ 
 for_end_4:			/* LN: 179 | CYCLE: 0 | RULES: () */ 

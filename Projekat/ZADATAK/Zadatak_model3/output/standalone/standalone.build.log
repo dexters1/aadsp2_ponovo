@@ -2,10 +2,8 @@
   Project: Zadatak_model3
 ===========================================
 Compiling .c files...
-   [delete] Deleting: C:\Users\Dexter\Desktop\Coding\aadsp2_ponovo\aadsp2\Projekat\ZADATAK\Zadatak_model3\output\standalone\src\main.O
-   [delete] Deleting: C:\Users\Dexter\Desktop\Coding\aadsp2_ponovo\aadsp2\Projekat\ZADATAK\Zadatak_model3\output\standalone\src\main.s
-C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp
-C:/CirrusDSP/bin/ccc2 C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp
+C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp
+C:/CirrusDSP/bin/ccc2 C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp
  -S
  -ruf
  -fcse
@@ -31,8 +29,8 @@ C:/CirrusDSP/bin/ccc2 C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projek
  -D_MUI_VERSION_=020000
  -IC:/CirrusDSP/include/
  -IC:/CirrusDSP/include/dsplib/
- -IC:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/inc/
- -oC:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.s
+ -IC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/inc/
+ -oC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.s
  -D_LOCAL_SRC_PATH_=src/
  -D_LOCAL_INC_PATH_=inc/
  -D_ROUTER_INC_PATH_=rom_inc/
@@ -48,33 +46,160 @@ C:/CirrusDSP/bin/ccc2 C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projek
      [exec]   typedef unsigned int size_t;
      [exec]                        ^
      [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 10: warning #149: declaration is incompatible with "DSPint input_gain" (declared at line 23 of "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/inc/processing.h")
+     [exec]   __memX DSPint input_gain;
+     [exec]                 ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 11: warning #149: declaration is incompatible with "DSPint headroom_gain" (declared at line 24 of "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/inc/processing.h")
+     [exec]   __memX DSPint headroom_gain;
+     [exec]                 ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 12: warning #149: declaration is incompatible with "ProcessingState processingState" (declared at line 25 of "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/inc/processing.h")
+     [exec]   __memX ProcessingState processingState;
+     [exec]                          ^
+     [exec] 
      [exec] WARNING: '-unsafe-loop-optimization' is ignored when '-g' option is used!
-     [exec] "C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 14: warning #4007: Pointer to unspecified memory zone.
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 14: warning #4007: Pointer to unspecified memory zone.
      [exec] 
-     [exec] "C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 17: warning #4007: Pointer to unspecified memory zone.
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 17: warning #4007: Pointer to unspecified memory zone.
      [exec] 
-     [exec] "C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 18: warning #4007: Pointer to unspecified memory zone.
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 18: warning #4007: Pointer to unspecified memory zone.
      [exec] 
-     [exec] "C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 79: info: Hardware loop is not emitted due to: 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 79: info: Hardware loop is not emitted due to: 
      [exec] Upper bound and initial loop index value are not constant.
      [exec] Make them constant or try using -funsafe-loop-optimizations option.
      [exec] 
-     [exec] "C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 75: info: Hardware loop is not emitted due to: 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 75: info: Hardware loop is not emitted due to: 
      [exec] Upper bound and initial loop index value are not constant.
      [exec] Make them constant or try using -funsafe-loop-optimizations option.
      [exec] 
-     [exec] "C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 73: info: Call to runtime function __div. Look at the separate document for information how to avoid this call.
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 73: info: Call to runtime function __div. Look at the separate document for information how to avoid this call.
      [exec] 
-     [exec] "C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 82: info: SRS is used at this line.
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 82: info: SRS is used at this line.
      [exec] 
-     [exec] "C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 96: info: SRS is used at this line.
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/main.cpp", line 96: info: SRS is used at this line.
      [exec] 
      [exec] FRONT END TIME: 0 seconds
      [exec] BACK  END TIME: 1 seconds
      [exec] 
+C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp
+C:/CirrusDSP/bin/ccc2 C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp
+ -S
+ -ruf
+ -fcse
+ -fprc
+ -fcompact
+ -funsafe-loop-optimizations
+ -g
+ -edi
+ -emit-hints
+ -ira
+ -fconst-pool=X
+ -fno0init
+ -femit-asm-struct
+ -cdl
+ -D_TOOLS_VERSION_=0x0701
+ -D_SLOT_=0
+ -D_OVLY_=standalone
+ -D_OVLY_REVISION_=020000
+ -D_VERSION_=00
+ -D_DSP_=a
+ -D_COMMON_INC_PATH_=C:/CirrusDSP/crystal32/common/inc/
+ -D_TARGET_FAMILY_=crystal32
+ -D_MUI_VERSION_=020000
+ -IC:/CirrusDSP/include/
+ -IC:/CirrusDSP/include/dsplib/
+ -IC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/inc/
+ -oC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/processing.s
+ -D_LOCAL_SRC_PATH_=src/
+ -D_LOCAL_INC_PATH_=inc/
+ -D_ROUTER_INC_PATH_=rom_inc/
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 224: warning #1229: argument of type "__memY DSPfract *" is incompatible with parameter (2 of processing_sum) of type "DSPfract *"
+     [exec]   	processing_sum(pInbuf[0], pInbuf[1], pOutbuf[2]);//Centralni buffer suma
+     [exec]   	                          ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 240: warning #1229: argument of type "__memY DSPfract *" is incompatible with parameter (1 of gst_audio_dynamic_transform_compressor) of type "DSPfract *"
+     [exec]   		gst_audio_dynamic_transform_compressor(pOutbuf[3]); // Ls kroz komrpesor
+     [exec]   		                                       ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 241: warning #1229: argument of type "__memY DSPfract *" is incompatible with parameter (1 of gst_audio_dynamic_transform_compressor) of type "DSPfract *"
+     [exec]   		gst_audio_dynamic_transform_compressor(pOutbuf[4]); // Rs kroz kompresor
+     [exec]   		                                       ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 247: warning #1229: argument of type "__memY DSPfract *" is incompatible with parameter (2 of processing_sum) of type "DSPfract *"
+     [exec]   		processing_sum(pInbuf[0], pInbuf[3], pOutbuf[3]); // sumira se L i Ls posle kompres gain-a za Ls izlaz
+     [exec]   		                          ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 248: warning #1229: argument of type "__memY DSPfract *" is incompatible with parameter (2 of processing_sum) of type "DSPfract *"
+     [exec]   		processing_sum(pInbuf[1], pInbuf[4], pOutbuf[4]); // sumira se R i Rs posle kompres gain-a za Rs izlaz
+     [exec]   		                          ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 252: warning #1229: argument of type "__memY DSPfract *" is incompatible with parameter (1 of gst_audio_dynamic_transform_compressor) of type "DSPfract *"
+     [exec]   		gst_audio_dynamic_transform_compressor(pOutbuf[3]); // Ls kroz komrpesor
+     [exec]   		                                       ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 253: warning #1229: argument of type "__memY DSPfract *" is incompatible with parameter (1 of gst_audio_dynamic_transform_compressor) of type "DSPfract *"
+     [exec]   		gst_audio_dynamic_transform_compressor(pOutbuf[4]); // Rs kroz kompresor
+     [exec]   		                                       ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 259: warning #1229: argument of type "__memY DSPfract *" is incompatible with parameter (2 of processing_sum) of type "DSPfract *"
+     [exec]   		processing_sum(pInbuf[0], pInbuf[3], pOutbuf[3]); // sumira se L i Ls posle kompres gain-a za Ls izlaz
+     [exec]   		                          ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cWARNING: '-unsafe-loop-optimization' is ignored when '-g' option is used!
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 24: warning #4007: Pointer to unspecified memory zone.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 24: warning #4007: Pointer to unspecified memory zone.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 24: warning #4007: Pointer to unspecified memory zone.
+     [exec] pp", line 260: warning #1229: argument of type "__memY DSPfract *" is incompatible with parameter (2 of processing_sum) of type "DSPfract *"
+     [exec]   		processing_sum(pInbuf[1], pInbuf[4], pOutbuf[4]); // sumira se R i Rs posle kompres gain-a za Rs izlaz
+     [exec]   		                          ^
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 24: warning #4007: Pointer to unspecified memory zone.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 172: warning #4007: Pointer to unspecified memory zone.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 143: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 144: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 150: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 113: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 114: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 120: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 206: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 128: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 129: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 135: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 191: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 192: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 174: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 176: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 158: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 159: info: SRS is used at this line.
+     [exec] 
+     [exec] "C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/src/processing.cpp", line 165: info: SRS is used at this line.
+     [exec] 
+     [exec] FRONT END TIME: 1 seconds
+     [exec] BACK  END TIME: 1 seconds
+     [exec] 
 Assembling .a and .s files...
-C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.s
-C:/CirrusDSP/bin/casm C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.s
+C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/processing.s
+C:/CirrusDSP/bin/casm C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/processing.s
  --debug
  -c
  -s
@@ -90,26 +215,50 @@ C:/CirrusDSP/bin/casm C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projek
  -D_MUI_VERSION_=020000
  -IC:/CirrusDSP/include/
  -IC:/CirrusDSP/include/dsplib/
- -IC:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/inc/
- -lC:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.lst
- -oC:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.O
+ -IC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/inc/
+ -lC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/processing.lst
+ -oC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/processing.O
+ -iC:/CirrusDSP/crystal32/common/inc/base.h
+ -D_LOCAL_SRC_PATH_=src/
+ -D_LOCAL_INC_PATH_=inc/
+ -D_ROUTER_INC_PATH_=rom_inc/
+C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.s
+C:/CirrusDSP/bin/casm C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.s
+ --debug
+ -c
+ -s
+ -e
+ -D_TOOLS_VERSION_=0x0701
+ -D_SLOT_=0
+ -D_OVLY_=standalone
+ -D_OVLY_REVISION_=020000
+ -D_VERSION_=00
+ -D_DSP_=a
+ -D_COMMON_INC_PATH_=C:/CirrusDSP/crystal32/common/inc/
+ -D_TARGET_FAMILY_=crystal32
+ -D_MUI_VERSION_=020000
+ -IC:/CirrusDSP/include/
+ -IC:/CirrusDSP/include/dsplib/
+ -IC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/inc/
+ -lC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.lst
+ -oC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.O
  -iC:/CirrusDSP/crystal32/common/inc/base.h
  -D_LOCAL_SRC_PATH_=src/
  -D_LOCAL_INC_PATH_=inc/
  -D_ROUTER_INC_PATH_=rom_inc/
 Linking files...
 C:/CirrusDSP/bin/clink
- -oC:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.img
+ -oC:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.img
  -fC:/CirrusDSP/crystal32/memory_maps/v00.mem.xml
  --output_type=RAM
  --overlay_type=standalone
  -lC:/CirrusDSP/lib/
  -lC:/CirrusDSP/lib/dsplib
  -lC:/CirrusDSP/lib/dsplib/crystal32/
-C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.O
-C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/processing.O
-C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/compressor.O
-C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/.metadata/.plugins/org.eclipse.cdt.make.core/specs.O
+C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/main.O
+C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/processing.O
+C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/src/compressor.O
+C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/.metadata/.plugins/org.eclipse.cdt.make.core/specs.O
      [exec] Warning #507: Unknown class: Y_OS_CC_GLOBALS
      [exec]             for the segment: CC_HEAPSTEAL_VALUES
      [exec]             from the module: C:\CirrusDSP\lib\dsplib\crystal32\cl_heapsteal.O
@@ -126,7 +275,8 @@ C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_mod
      [exec] C:\CirrusDSP\lib\dsplib\crystal32\cl_wavread_frame_rate.o
      [exec] C:\CirrusDSP\lib\dsplib\crystal32\cl_wavread_getnchannels.o
      [exec] C:\CirrusDSP\lib\dsplib\crystal32\cl_wavread_number_of_frames.o
-     [exec] C:\CirrusDSP\lib\dsplib\crystal32\cl_wavread_open.o
+     [exec] C:\CirrusDSP\lib\dsplib\crystal32\cl_wavread_open
+     [exec] .o
      [exec] C:\CirrusDSP\lib\dsplib\crystal32\cl_wavread_recvsample.o
      [exec] C:\CirrusDSP\lib\dsplib\crystal32\cl_wavwrite_close.o
      [exec] C:\CirrusDSP\lib\dsplib\crystal32\cl_wavwrite_open.o
@@ -135,22 +285,21 @@ C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_mod
 Creating .uld file...
 C:/CirrusDSP/bin/lnkuld
  -ja
- C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.img
- C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.uld
+ C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.img
+ C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.uld
      [exec] 
-     [exec] Reading file: C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.img ...
-     [exec] 	Processed 841 line(s).
+     [exec] Reading file: C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.img ...
+     [exec] 	Processed 834 line(s).
      [exec] 
-     [exec] Writing output to file: C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZA
-     [exec] DATAK/Zadatak_model3/output/standalone/Zadatak_model3.uld ...
-     [exec] 
-     [exec] Done!
-     [exec] 
-     [exec] Writing output to file: C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.uldb ...
+     [exec] Writing output to file: C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.uld ...
      [exec] 
      [exec] Done!
      [exec] 
-     [exec] Writing output to file: C:/Users/Dexter/Desktop/Coding/aadsp2_ponovo/aadsp2/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.uldc ...
+     [exec] Writing output to file: C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.uldb ...
+     [exec] 
+     [exec] Done!
+     [exec] 
+     [exec] Writing output to file: C:/Users/random/Desktop/igor/aadsp2_ponovo/Projekat/ZADATAK/Zadatak_model3/output/standalone/Zadatak_model3.uldc ...
 
 BUILD SUCCESSFUL
-Total time: 5 seconds
+Total time: 9 seconds

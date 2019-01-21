@@ -1,2 +1,9 @@
-
-ERROR! Input file: Output//2ch_contour_ne40_24b_48k_model3.wav - not found! 
+    Test error! Recorded file is 1302453 samples shorter than the reference file!
+    Max difference is 1 (1 bits, -144.49dB)
+    8267 samples compared 
+   -----------------------------------------------------------
+    Dif(bits) |    Samples    |   PERCENT  |   First dif
+   -----------------------------------------------------------
+         1    |         16    |    0.19%   |  0x00001106   
+   -----------------------------------------------------------
+      Error   |         16    |    0.19%              

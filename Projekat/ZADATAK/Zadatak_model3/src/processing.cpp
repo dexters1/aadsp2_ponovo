@@ -108,10 +108,10 @@ int processing_init(char* enable, char* input_gain_in, char* headroom_gain_in, c
 }
 
 
-void processing_input_gain(DSPfract* pInbuf, DSPfract* pOutbuf)
+void processing_input_gain(DSPfract __memY* pInbuf, DSPfract __memY* pOutbuf)
 {
-	DSPfract *in = pInbuf;
-	DSPfract *out = pOutbuf;
+	DSPfract __memY*in = pInbuf;
+	DSPfract __memY*out = pOutbuf;
 	DSPint i;
 
 	for (i = 0; i < BLOCK_SIZE; i++)
@@ -123,10 +123,10 @@ void processing_input_gain(DSPfract* pInbuf, DSPfract* pOutbuf)
 	}
 }
 
-void processing_headroom_gain(DSPfract* pInbuf, DSPfract* pOutbuf)
+void processing_headroom_gain(DSPfract __memY* pInbuf, DSPfract __memY* pOutbuf)
 {
-	DSPfract *in = pInbuf;
-	DSPfract *out = pOutbuf;
+	DSPfract __memY*in = pInbuf;
+	DSPfract __memY*out = pOutbuf;
 	DSPint i;
 
 	for (i = 0; i < BLOCK_SIZE; i++)
@@ -138,10 +138,10 @@ void processing_headroom_gain(DSPfract* pInbuf, DSPfract* pOutbuf)
 	}
 }
 
-void processing_gain_negative_2(DSPfract* pInbuf, DSPfract* pOutbuf)
+void processing_gain_negative_2(DSPfract __memY* pInbuf, DSPfract __memY* pOutbuf)
 {
-	DSPfract *in = pInbuf;
-	DSPfract *out = pOutbuf;
+	DSPfract __memY*in = pInbuf;
+	DSPfract __memY*out = pOutbuf;
 	DSPint i;
 
 	for (i = 0; i < BLOCK_SIZE; i++)
@@ -153,10 +153,10 @@ void processing_gain_negative_2(DSPfract* pInbuf, DSPfract* pOutbuf)
 	}
 }
 
-void processing_gain_negative_6(DSPfract* pInbuf, DSPfract* pOutbuf)
+void processing_gain_negative_6(DSPfract __memY* pInbuf, DSPfract __memY* pOutbuf)
 {
-	DSPfract *in = pInbuf;
-	DSPfract *out = pOutbuf;
+	DSPfract __memY*in = pInbuf;
+	DSPfract __memY*out = pOutbuf;
 	DSPint i;
 
 	for ( i = 0; i < BLOCK_SIZE; i++)
@@ -169,11 +169,11 @@ void processing_gain_negative_6(DSPfract* pInbuf, DSPfract* pOutbuf)
 }
 
 
-void processing_sum(DSPfract* pInbuf1, DSPfract* pInbuf2, DSPfract* pOutbuf)
+void processing_sum(DSPfract __memY* pInbuf1, DSPfract* pInbuf2, DSPfract __memY* pOutbuf)
 {
-	DSPfract *in1 = pInbuf1;
-	DSPfract *in2 = pInbuf2;
-	DSPfract *out = pOutbuf;
+	DSPfract __memY*in1 = pInbuf1;
+	DSPfract __memY*in2 = pInbuf2;
+	DSPfract __memY*out = pOutbuf;
 	DSPint i;
 
 	for ( i = 0; i < BLOCK_SIZE; i++)
@@ -186,10 +186,10 @@ void processing_sum(DSPfract* pInbuf1, DSPfract* pInbuf2, DSPfract* pOutbuf)
 	}
 }
 
-void processing_copy(DSPfract* pInbuf, DSPfract* pOutbuf)
+void processing_copy(DSPfract __memY* pInbuf, DSPfract __memY* pOutbuf)
 {
-	DSPfract *in = pInbuf;
-	DSPfract *out = pOutbuf;
+	DSPfract __memY*in = pInbuf;
+	DSPfract __memY*out = pOutbuf;
 	DSPint i;
 
 	for (i = 0; i < BLOCK_SIZE; i++)
@@ -201,9 +201,9 @@ void processing_copy(DSPfract* pInbuf, DSPfract* pOutbuf)
 	}
 }
 
-void processing_empty(DSPfract* pOutbuf)
+void processing_empty(DSPfract __memY* pOutbuf)
 {
-	DSPfract *out = pOutbuf;
+	DSPfract __memY*out = pOutbuf;
 	DSPint i;
 
 	for (i = 0; i < BLOCK_SIZE; i++)
@@ -215,7 +215,7 @@ void processing_empty(DSPfract* pOutbuf)
 }
 
 
-void processing(DSPfract pInbuf[MAX_NUM_CHANNEL][BLOCK_SIZE], DSPfract pOutbuf[MAX_NUM_CHANNEL][BLOCK_SIZE])
+void processing(DSPfract __memY pInbuf[MAX_NUM_CHANNEL][BLOCK_SIZE], DSPfract __memY  pOutbuf[MAX_NUM_CHANNEL][BLOCK_SIZE])
 {
 	//sve mnozim sa gainom
 	processing_input_gain(pInbuf[0], pOutbuf[0]);//L input_gain

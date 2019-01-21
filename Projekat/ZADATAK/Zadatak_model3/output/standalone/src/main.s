@@ -27,30 +27,53 @@ _input_gain
 	.xdata_ovly
 _processingState
 	.bss (0x4)
-	.xdata_ovly
+	.ydata_ovly
 _sampleBuffer
 	.bss (0x80)
 	.xdata_ovly
 _string_const_0
-	.dw  (0x43)
-	.dw  (0x3a)
-	.dw  (0x5c)
-	.dw  (0x74)
-	.dw  (0x69)
-	.dw  (0x74)
-	.dw  (0x61)
-	.dw  (0x6e)
-	.dw  (0x69)
-	.dw  (0x63)
-	.dw  (0x5f)
-	.dw  (0x68)
+	.dw  (0x45)
+	.dw  (0x72)
+	.dw  (0x72)
 	.dw  (0x6f)
 	.dw  (0x72)
+	.dw  (0x32)
+	.dw  (0x3a)
+	.dw  (0x20)
+	.dw  (0x43)
+	.dw  (0x6f)
+	.dw  (0x75)
+	.dw  (0x6c)
+	.dw  (0x64)
+	.dw  (0x20)
 	.dw  (0x6e)
-	.dw  (0x2e)
+	.dw  (0x6f)
+	.dw  (0x74)
+	.dw  (0x20)
+	.dw  (0x6f)
+	.dw  (0x70)
+	.dw  (0x65)
+	.dw  (0x6e)
+	.dw  (0x20)
+	.dw  (0x69)
+	.dw  (0x6e)
+	.dw  (0x70)
+	.dw  (0x75)
+	.dw  (0x74)
+	.dw  (0x20)
 	.dw  (0x77)
 	.dw  (0x61)
 	.dw  (0x76)
+	.dw  (0x65)
+	.dw  (0x66)
+	.dw  (0x69)
+	.dw  (0x6c)
+	.dw  (0x65)
+	.dw  (0x20)
+	.dw  (0x25)
+	.dw  (0x73)
+	.dw  (0x2e)
+	.dw  (0xa)
 	.dw  (0x0)
 	.xdata_ovly
 _string_const_1
@@ -76,8 +99,9 @@ _string_const_1
 	.dw  (0x65)
 	.dw  (0x6e)
 	.dw  (0x20)
-	.dw  (0x69)
-	.dw  (0x6e)
+	.dw  (0x6f)
+	.dw  (0x75)
+	.dw  (0x74)
 	.dw  (0x70)
 	.dw  (0x75)
 	.dw  (0x74)
@@ -95,83 +119,18 @@ _string_const_1
 	.dw  (0x0)
 	.xdata_ovly
 _string_const_2
-	.dw  (0x43)
-	.dw  (0x3a)
-	.dw  (0x5c)
-	.dw  (0x6f)
-	.dw  (0x75)
-	.dw  (0x74)
-	.dw  (0x70)
-	.dw  (0x75)
-	.dw  (0x74)
-	.dw  (0x5f)
-	.dw  (0x6d)
-	.dw  (0x6f)
-	.dw  (0x64)
-	.dw  (0x65)
-	.dw  (0x6c)
-	.dw  (0x33)
-	.dw  (0x2e)
-	.dw  (0x77)
-	.dw  (0x61)
-	.dw  (0x76)
-	.dw  (0x0)
-	.xdata_ovly
-_string_const_3
-	.dw  (0x45)
-	.dw  (0x72)
-	.dw  (0x72)
-	.dw  (0x6f)
-	.dw  (0x72)
-	.dw  (0x3a)
-	.dw  (0x20)
-	.dw  (0x43)
-	.dw  (0x6f)
-	.dw  (0x75)
-	.dw  (0x6c)
-	.dw  (0x64)
-	.dw  (0x20)
-	.dw  (0x6e)
-	.dw  (0x6f)
-	.dw  (0x74)
-	.dw  (0x20)
-	.dw  (0x6f)
-	.dw  (0x70)
-	.dw  (0x65)
-	.dw  (0x6e)
-	.dw  (0x20)
-	.dw  (0x6f)
-	.dw  (0x75)
-	.dw  (0x74)
-	.dw  (0x70)
-	.dw  (0x75)
-	.dw  (0x74)
-	.dw  (0x20)
-	.dw  (0x77)
-	.dw  (0x61)
-	.dw  (0x76)
-	.dw  (0x65)
-	.dw  (0x66)
-	.dw  (0x69)
-	.dw  (0x6c)
-	.dw  (0x65)
-	.dw  (0x2e)
-	.dw  (0xa)
-	.dw  (0x0)
-	.xdata_ovly
-_string_const_4
 	.dw  (0x31)
 	.dw  (0x0)
 	.xdata_ovly
+_string_const_3
+	.dw  (0x61)
+	.dw  (0x0)
+	.xdata_ovly
+_string_const_4
+	.dw  (0x61)
+	.dw  (0x0)
+	.xdata_ovly
 _string_const_5
-	.dw  (0x61)
-	.dw  (0x0)
-	.xdata_ovly
-_string_const_6
-	.dw  (0x61)
-	.dw  (0x0)
-	.xdata_ovly
-_string_const_7
 	.dw  (0x61)
 	.dw  (0x73)
 	.dw  (0x0)
@@ -201,8 +160,12 @@ _main:			/* LN: 14 | CYCLE: 0 | RULES: () */
 	i1 = i7 - (0x2)			# LN: 14 | 
 	xmem[i1] = i0			# LN: 14 | 
 cline_14_0:			/* LN: 35 | CYCLE: 0 | RULES: () */ 
-	i0 = i7 - (258 - 0)			# LN: 35 | 
-	i1 = (0) + (_string_const_0)			# LN: 35 | 
+	i0 = i7 - (0x2)			# LN: 35 | 
+	i0 = xmem[i0]			# LN: 35 | 
+	i1 = i7 - (258 - 0)			# LN: 35 | 
+	i4 = xmem[i0]			# LN: 35 | 
+	i0 = i1			# LN: 35 | 
+	i1 = i4			# LN: 35 | 
 	call (_strcpy)			# LN: 35 | 
 cline_35_0:			/* LN: 36 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (258 - 0)			# LN: 36 | 
@@ -216,7 +179,8 @@ cline_36_0:			/* LN: 37 | CYCLE: 0 | RULES: () */
 	a0 & a0			# LN: 37 | 
 	if (a != 0) jmp (else_0)			# LN: 37 | 
 cline_37_0:			/* LN: 39 | CYCLE: 0 | RULES: () */ 
-	i0 = (0) + (_string_const_1)			# LN: 39 | 
+	i0 = (0) + (_string_const_0)			# LN: 39 | 
+	i1 = i7 - (258 - 0)			# LN: 39 | 
 	call (_printf)			# LN: 39 | 
 cline_39_0:			/* LN: 40 | CYCLE: 0 | RULES: () */ 
 	halfword(a0) = (0xffff)			# LN: 40 | 
@@ -248,8 +212,13 @@ cline_48_0:			/* LN: 49 | CYCLE: 0 | RULES: () */
 	i0 = i7 - (0x107)			# LN: 49 | 
 	xmem[i0] = a0h			# LN: 49 | 
 cline_49_0:			/* LN: 54 | CYCLE: 0 | RULES: () */ 
-	i0 = i7 - (519 - 0)			# LN: 54 | 
-	i1 = (0) + (_string_const_2)			# LN: 54 | 
+	i0 = i7 - (0x2)			# LN: 54 | 
+	i0 = xmem[i0]			# LN: 54 | 
+	i1 = i7 - (519 - 0)			# LN: 54 | 
+	i0 += 1			# LN: 54 | 
+	i4 = xmem[i0]			# LN: 54 | 
+	i0 = i1			# LN: 54 | 
+	i1 = i4			# LN: 54 | 
 	call (_strcpy)			# LN: 54 | 
 cline_54_0:			/* LN: 55 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (519 - 0)			# LN: 55 | 
@@ -268,7 +237,7 @@ cline_55_0:			/* LN: 56 | CYCLE: 0 | RULES: () */
 	a0 & a0			# LN: 56 | 
 	if (a != 0) jmp (else_1)			# LN: 56 | 
 cline_56_0:			/* LN: 58 | CYCLE: 0 | RULES: () */ 
-	i0 = (0) + (_string_const_3)			# LN: 58 | 
+	i0 = (0) + (_string_const_1)			# LN: 58 | 
 	call (_printf)			# LN: 58 | 
 cline_58_0:			/* LN: 59 | CYCLE: 0 | RULES: () */ 
 	halfword(a0) = (0xffff)			# LN: 59 | 
@@ -276,11 +245,11 @@ cline_58_0:			/* LN: 59 | CYCLE: 0 | RULES: () */
 cline_59_0:			/* LN: 63 | CYCLE: 0 | RULES: () */ 
 endif_1:			/* LN: 56 | CYCLE: 0 | RULES: () */ 
 else_1:			/* LN: 56 | CYCLE: 0 | RULES: () */ 
-	i0 = (0) + (_string_const_4)			# LN: 63 | 
-	i1 = (0) + (_string_const_5)			# LN: 63 | 
-	i4 = (0) + (_string_const_6)			# LN: 63 | 
+	i0 = (0) + (_string_const_2)			# LN: 63 | 
+	i1 = (0) + (_string_const_3)			# LN: 63 | 
+	i4 = (0) + (_string_const_4)			# LN: 63 | 
 	uhalfword(a0) = (0x6)			# LN: 63 | 
-	i5 = (0) + (_string_const_7)			# LN: 63 | 
+	i5 = (0) + (_string_const_5)			# LN: 63 | 
 	call (_processing_init)			# LN: 63 | 
 	i0 = i7 - (0x209)			# LN: 63 | 
 	xmem[i0] = a0h			# LN: 63 | 
@@ -348,7 +317,7 @@ cline_81_0:			/* LN: 82 | CYCLE: 0 | RULES: () */
 	AnyReg(i0, a0h)			# LN: 82 | 
 	i1 = i7 - (0x20e)			# LN: 82 | 
 	a0 = xmem[i1]			# LN: 82 | 
-	xmem[i0] = a0h			# LN: 82 | 
+	ymem[i0] = a0h			# LN: 82 | 
 cline_82_0:			/* LN: 79 | CYCLE: 0 | RULES: () */ 
 init_latch_label_0:			/* LN: 83 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x20d)			# LN: 79 | 
@@ -405,7 +374,7 @@ label_begin_93:			/* LN: 94 | CYCLE: 0 | RULES: () */
 	a0 = a1 + a0			# LN: 96 | 
 	AnyReg(i0, a0h)			# LN: 96 | 
 	i1 = i7 - (0x20e)			# LN: 96 | 
-	a0 = xmem[i0]			# LN: 96 | 
+	a0 = ymem[i0]			# LN: 96 | 
 	xmem[i1] = a0h			# LN: 96 | 
 cline_96_0:			/* LN: 97 | CYCLE: 0 | RULES: () */ 
 	i0 = i7 - (0x208)			# LN: 97 | 

@@ -6,10 +6,10 @@
 #include "compressor.h"
 #include "processing.h"
 
-DSPfract sampleBuffer[MAX_NUM_CHANNEL][BLOCK_SIZE];
-DSPint input_gain;
-DSPint headroom_gain;
-ProcessingState processingState;
+__memY DSPfract sampleBuffer[MAX_NUM_CHANNEL][BLOCK_SIZE];
+__memX DSPint input_gain;
+__memX DSPint headroom_gain;
+__memX ProcessingState processingState;
 
 int main(int argc, char *argv[])
  {
@@ -32,11 +32,11 @@ int main(int argc, char *argv[])
 
 	// Open input wav file
 	//-------------------------------------------------
-	strcpy(WavInputName, "C:\\titanic_horn.wav");
+	strcpy(WavInputName, argv[0]);
 	wav_in = cl_wavread_open(WavInputName);
 	if(wav_in == NULL)
     {
-        printf("Error: Could not open input wavefile.\n");
+        printf("Error2: Could not open input wavefile %s.\n", WavInputName);
         return -1;
     }
 	//-------------------------------------------------
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 
 	// Open output wav file
 	//-------------------------------------------------
-	strcpy(WavOutputName, "C:\\output_model3.wav");
+	strcpy(WavOutputName, argv[1]);
 	wav_out = cl_wavwrite_open(WavOutputName, bitsPerSample, 5, sampleRate);
 	if(!wav_out)
     {
